@@ -7,8 +7,8 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.bind.annotation.XmlSeeAlso;
-import com.oryx.ws.service.contact.ContactWSSRequest;
-import com.oryx.ws.service.contact.ContactWSSResponse;
+import com.oryx.ws.service.contact.ContactWSRequest;
+import com.oryx.ws.service.contact.ContactWSResponse;
 
 
 /**
@@ -29,14 +29,14 @@ public interface ContactService {
 
     /**
      * 
-     * @param contactWSSRequest
+     * @param contactWSRequest
      * @return
-     *     returns com.oryx.ws.service.contact.ContactWSSResponse
+     *     returns com.oryx.ws.service.contact.ContactWSResponse
      */
-    @WebMethod(operationName = "ContactWSS")
-    @WebResult(name = "ContactWSSResponse", targetNamespace = "http://com/oryx/ws/service/contact", partName = "ContactWSSResponse")
-    public ContactWSSResponse contactWSS(
-        @WebParam(name = "ContactWSSRequest", targetNamespace = "http://com/oryx/ws/service/contact", partName = "ContactWSSRequest")
-        ContactWSSRequest contactWSSRequest);
+    @WebMethod(operationName = "ContactWS")
+    @WebResult(name = "ContactWSResponse", targetNamespace = "http://com/oryx/ws/service/contact", partName = "ContactWSResponse")
+    public ContactWSResponse contactWS(
+        @WebParam(name = "ContactWSRequest", targetNamespace = "http://com/oryx/ws/service/contact", partName = "ContactWSRequest")
+        ContactWSRequest contactWSRequest);
 
 }
