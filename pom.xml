@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.oryx</groupId>
+    <artifactId>oryx</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>${owner}: 0000-${artifactId}${nameSuffix}</name>
+    <packaging>pom</packaging>
+
+    <description></description>
+    <url></url>
+
+    <properties>
+        <nameSuffix></nameSuffix>
+        <owner>Oryx</owner>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <context.path>${artifactId}</context.path>
+        <oryx.server.name>oryx-server</oryx.server.name>
+        <oryx.bridge.name>oryx-bridge</oryx.bridge.name>
+
+        <!--dependencies-->
+        <spring.version>5.0.4.RELEASE</spring.version>
+        <spring.data.version>2.0.5.RELEASE</spring.data.version>
+        <spring.ws.version>3.0.0.RELEASE</spring.ws.version>
+        <tiles.version>3.0.8</tiles.version>
+        <hibernate.jpa.api.version>1.0.2.Final</hibernate.jpa.api.version>
+        <hibernate.em.version>5.2.15.Final</hibernate.em.version>
+        <javax.servlet.api>4.0.0</javax.servlet.api>
+
+        <!--maven-->
+        <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+        <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+        <maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>
+        <maven.war.plugin.version>3.1.0</maven.war.plugin.version>
+        <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
+        <cargo.version>1.6.4</cargo.version>
+
+        <!--tomcat-->
+        <tomcat.version>2.2</tomcat.version>
+        <tomcat.server.port>8080</tomcat.server.port>
+
+        <!--mysql-->
+        <mysql.connector.version>5.1.6</mysql.connector.version>
+
+        <!--jaxb-->
+        <jaxb2.version>2.3.1</jaxb2.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>BUILD.DEV</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <tomcat.dashboard.host>localhost</tomcat.dashboard.host>
+                <tomcat.client.host>localhost</tomcat.client.host>
+                <tomcat.server.host>localhost</tomcat.server.host>
+
+                <tomcat.user.name>admin</tomcat.user.name>
+                <tomcat.password>tomcat</tomcat.password>
+
+                <tomcat.conf.file>tomcat/conf/dev</tomcat.conf.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>BUILD.DEMO</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <tomcat.dashboard.host>localhost</tomcat.dashboard.host>
+                <tomcat.client.host>localhost</tomcat.client.host>
+                <tomcat.server.host>localhost</tomcat.server.host>
+
+                <tomcat.user.name>admin</tomcat.user.name>
+                <tomcat.password>tomcat</tomcat.password>
+
+                <tomcat.conf.file>tomcat/conf/demo</tomcat.conf.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>BUILD.PROD</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <tomcat.dashboard.host>localhost</tomcat.dashboard.host>
+                <tomcat.client.host>localhost</tomcat.client.host>
+                <tomcat.server.host>localhost</tomcat.server.host>
+
+                <tomcat.user.name>admin</tomcat.user.name>
+                <tomcat.password>tomcat</tomcat.password>
+
+                <tomcat.conf.file>tomcat/conf/prod</tomcat.conf.file>
+            </properties>
+        </profile>
+    </profiles>
+
+    <licenses>
+        <license>
+            <name></name>
+            <url></url>
+            <distribution></distribution>
+        </license>
+    </licenses>
+
+    <inceptionYear>2016</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>SMB</id>
+            <name>Sami MBARKI</name>
+            <email>sami.mbarki@oryx.org</email>
+            <organization>Oryx</organization>
+            <organizationUrl>http://www.oryx.org</organizationUrl>
+            <roles>
+                <role>PROJECT_MANAGER</role>
+                <role>DEVELOPPER</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>oryx-server</module>
+        <module>oryx-bridge</module>
+    </modules>
+</project>
