@@ -20,6 +20,12 @@
     </properties>
 
     <dependencies>
+        <!-- Internal - models -->
+        <dependency>
+            <groupId>com.oryx</groupId>
+            <artifactId>oryx-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
@@ -245,43 +251,6 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>${jaxb2.version}</version>
-                <executions>
-                    <execution>
-                        <id>schemagen</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>schemagen</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <locale>fr</locale>
-                    <sources>
-                        <source>/src/main/java/com/oryx/model</source>
-                    </sources>
-
-                    <outputDirectory>${project.build.directory}/generated-sources/xjc/schemagen</outputDirectory>
-                    <clearOutputDir>true</clearOutputDir>
-
-                    <transformSchemas>
-                        <transformSchema>
-                            <uri>http://domain.ref.ws.oryx.com</uri>
-                            <toPrefix>domain</toPrefix>
-                            <toFile>domain.xsd</toFile>
-                        </transformSchema>
-                        <transformSchema>
-                            <uri>http://model.ref.ws.oryx.com</uri>
-                            <toPrefix>model</toPrefix>
-                            <toFile>model.xsd</toFile>
-                        </transformSchema>
-                    </transformSchemas>
                 </configuration>
             </plugin>
 
