@@ -253,30 +253,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>${jaxb2.version}</version>
-                <executions>
-                    <execution>
-                        <id>xjc</id>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                        <configuration>
-                            <!-- replace is by get for Boolean properties -->
-                            <arguments>
-                                <argument>-enableIntrospection</argument>
-                            </arguments>
-                            <sources>
-                                <source>${project.basedir}/src/main/webapp/schemas</source>
-                            </sources>
-                            <outputDirectory>${project.build.directory}/generated-sources/xjc</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 </project>

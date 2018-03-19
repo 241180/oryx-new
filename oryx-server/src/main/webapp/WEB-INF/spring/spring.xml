@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 						   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
@@ -20,22 +21,6 @@
     <!-- SpringData -->
     <import resource="spring-jpa.xml"/>
 
-
-    <bean id="ContactService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
-        <property name="schemaCollection">
-            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
-                <property name="inline" value="true"/>
-                <property name="xsds">
-                    <list>
-                        <value>schemas/elements/domain.xsd</value>
-                        <value>schemas/elements/model.xsd</value>
-                        <value>schemas/ContactServerService.xsd</value>
-                    </list>
-                </property>
-            </bean>
-        </property>
-        <property name="portTypeName" value="ContactService"/>
-        <property name="serviceName" value="ContactServices"/>
-        <property name="locationUri" value="/endpoint"/>
-    </bean>
+    <!-- SpringWS -->
+    <import resource="classpath:spring/spring-model-ws.xml"/>
 </beans>

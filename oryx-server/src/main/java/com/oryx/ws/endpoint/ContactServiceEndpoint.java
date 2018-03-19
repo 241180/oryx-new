@@ -1,7 +1,7 @@
 package com.oryx.ws.endpoint;
 
-import com.oryx.ws.service.contact.ContactWSRequest;
-import com.oryx.ws.service.contact.ContactWSResponse;
+import com.oryx.ws.ContactWSRequest;
+import com.oryx.ws.ContactWSResponse;
 import org.apache.log4j.Logger;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;

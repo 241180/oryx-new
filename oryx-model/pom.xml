@@ -281,6 +281,11 @@
                             <toPrefix>model</toPrefix>
                             <toFile>model.xsd</toFile>
                         </transformSchema>
+                        <transformSchema>
+                            <uri>http://contact.ws.oryx.com</uri>
+                            <toPrefix>contact</toPrefix>
+                            <toFile>contact.xsd</toFile>
+                        </transformSchema>
                     </transformSchemas>
                 </configuration>
             </plugin>
@@ -301,7 +306,7 @@
                                 <argument>-enableIntrospection</argument>
                             </arguments>
                             <sources>
-                                <source>${project.basedir}/src/main/webapp/schemas</source>
+                                <source>${project.basedir}/src/main/resources/schemas</source>
                             </sources>
                             <outputDirectory>${project.build.directory}/generated-sources/xjc</outputDirectory>
                         </configuration>
