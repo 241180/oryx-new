@@ -14,35 +14,20 @@
     <context:component-scan base-package="com.oryx.ws"/>
     <sws:annotation-driven/>
 
-    <bean id="ContactService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+    <bean id="WsService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
         <property name="schemaCollection">
             <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
                 <property name="inline" value="true"/>
                 <property name="xsds">
                     <list>
                         <value>classpath:schemas/ws/ContactServerService.xsd</value>
-                    </list>
-                </property>
-            </bean>
-        </property>
-        <property name="portTypeName" value="ContactService"/>
-        <property name="serviceName" value="ContactServices"/>
-        <property name="locationUri" value="/endpoint"/>
-    </bean>
-
-    <bean id="UserService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
-        <property name="schemaCollection">
-            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
-                <property name="inline" value="true"/>
-                <property name="xsds">
-                    <list>
                         <value>classpath:schemas/ws/UserServerService.xsd</value>
                     </list>
                 </property>
             </bean>
         </property>
-        <property name="portTypeName" value="UserService"/>
-        <property name="serviceName" value="UserServices"/>
+        <property name="portTypeName" value="WsService"/>
+        <property name="serviceName" value="WsServices"/>
         <property name="locationUri" value="/endpoint"/>
     </bean>
 </beans>
