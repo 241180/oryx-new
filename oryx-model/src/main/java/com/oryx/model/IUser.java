@@ -1,13 +1,12 @@
 package com.oryx.model;
 
-import com.oryx.domain.Role;
+import com.oryx.domain.IEnumCrudOperation;
+import com.oryx.domain.IEnumRole;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -33,7 +32,7 @@ public class IUser extends ITracableCancelableEntity{
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
-    private Role role;
+    private IEnumRole.Types role;
 
     public String getEmail() {
         return email;
@@ -51,11 +50,11 @@ public class IUser extends ITracableCancelableEntity{
         this.name = name;
     }
 
-    public Role getRole() {
+    public IEnumRole.Types getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(IEnumRole.Types role) {
         this.role = role;
     }
 

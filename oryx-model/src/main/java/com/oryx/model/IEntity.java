@@ -1,5 +1,6 @@
 package com.oryx.model;
 
+import com.oryx.domain.IEnumCrudOperation;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;

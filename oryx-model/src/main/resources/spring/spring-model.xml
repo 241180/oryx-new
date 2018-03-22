@@ -12,6 +12,7 @@
 
     <context:annotation-config/>
 
+    <context:component-scan base-package="com.oryx.domain"/>
     <context:component-scan base-package="com.oryx.model"/>
     <context:component-scan base-package="com.oryx.repository"/>
     <context:component-scan base-package="com.oryx.service"/>

@@ -3,8 +3,8 @@
 
   <xs:simpleType name="XmlRole">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="USER"/>
       <xs:enumeration value="ADMIN"/>
+      <xs:enumeration value="USER"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
