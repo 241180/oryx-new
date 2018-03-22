@@ -20,7 +20,7 @@
                 <property name="inline" value="true"/>
                 <property name="xsds">
                     <list>
-                        <value>classpath:schemas/ContactServerService.xsd</value>
+                        <value>classpath:schemas/ws/ContactServerService.xsd</value>
                     </list>
                 </property>
             </bean>
@@ -36,7 +36,7 @@
                 <property name="inline" value="true"/>
                 <property name="xsds">
                     <list>
-                        <value>classpath:schemas/UserServerService.xsd</value>
+                        <value>classpath:schemas/ws/UserServerService.xsd</value>
                     </list>
                 </property>
             </bean>

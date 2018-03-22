@@ -5,10 +5,10 @@
             elementFormDefault="qualified"
             targetNamespace="http://com/oryx/ws/userservice">
 
-    <xs:import namespace="http://model.ref.ws.oryx.com" schemaLocation="model.xsd"/>
-    <xs:import namespace="http://domain.ref.ws.oryx.com" schemaLocation="domain.xsd"/>
+    <xs:import namespace="http://model.ref.ws.oryx.com" schemaLocation="../model.xsd"/>
+    <xs:import namespace="http://domain.ref.ws.oryx.com" schemaLocation="../domain.xsd"/>
 
-    <xs:element name="wsRequest">
+    <xs:element name="wsUserRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="request" type="xs:string"/>
@@ -16,7 +16,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="wsResponse">
+    <xs:element name="wsUserResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="request" type="xs:string"/>
