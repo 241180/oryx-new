@@ -3,40 +3,39 @@ package com.oryx.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
+import java.util.UUID;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XmlContact", namespace = "http://model.ref.ws.oryx.com")
 @Entity
-public class Contact {
-
-    @Id
-    @GeneratedValue
-    private int id;
+@Table(
+		name = SchemaTableConstantName.T_CONTACT
+        /*, uniqueConstraints = {
+        @UniqueConstraint(name = "UC_DATE_HOST"
+                , columnNames = {SchemaTableConstantName.T_RDV_DATE, SchemaTableConstantName.T_HOST_ID}),
+        @UniqueConstraint(name = "UC_DATE_GUEST"
+                , columnNames = {SchemaTableConstantName.T_RDV_DATE, SchemaTableConstantName.T_GUEST_ID})}
+                */
+)
+public class IContact extends ITracableCancelableEntity{
 	private String name;
 	private String phoneNumber;
 	private String email;
 	
-	public Contact(){
+	public IContact(){
 		
 	}
 	
-	public Contact(String name, String phoneNumber, String email, int id) {
+	public IContact(String name, String phoneNumber, String email, int id) {
 		super();
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
 		return name;
@@ -61,19 +60,4 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-    @Override
-    public boolean equals(Object object) {
-        if (object instanceof Contact){
-            Contact contact = (Contact) object;
-            return contact.id == id;
-        }
-
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
-    }
 }

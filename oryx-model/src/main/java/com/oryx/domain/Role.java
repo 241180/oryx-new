@@ -1,4 +1,4 @@
-package com.oryx.model;
+package com.oryx.domain;
 
 import javax.xml.bind.annotation.*;
 

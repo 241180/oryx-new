@@ -1,8 +1,8 @@
 package com.oryx.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import com.oryx.model.User;
+import com.oryx.model.IUser;
 
-public interface UserRepository extends CrudRepository<User, Integer> {
-    User findByEmail(String email);
+public interface UserRepository extends CrudRepository<IUser, Integer> {
+    IUser findByEmail(String email);
 }

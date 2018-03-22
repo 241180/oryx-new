@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import com.oryx.model.Contact;
+import com.oryx.model.IContact;
 import com.oryx.service.ContactService;
 import com.oryx.vo.ContactListVO;
 
 import java.util.Locale;
+import java.util.UUID;
 
 @Controller
 @RequestMapping(value = "/protected/contacts")
@@ -46,7 +47,7 @@ public class ContactsController {
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> create(@ModelAttribute("contact") Contact contact,
+    public ResponseEntity<?> create(@ModelAttribute("contact") IContact contact,
                                     @RequestParam(required = false) String searchFor,
                                     @RequestParam(required = false, defaultValue = DEFAULT_PAGE_DISPLAYED_TO_USER) int page,
                                     Locale locale) {
@@ -60,12 +61,12 @@ public class ContactsController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = "application/json")
-    public ResponseEntity<?> update(@PathVariable("id") int contactId,
-                                    @RequestBody Contact contact,
+    public ResponseEntity<?> update(@PathVariable("id") UUID contactId,
+                                    @RequestBody IContact contact,
                                     @RequestParam(required = false) String searchFor,
                                     @RequestParam(required = false, defaultValue = DEFAULT_PAGE_DISPLAYED_TO_USER) int page,
                                     Locale locale) {
-        if (contactId != contact.getId()) {
+        if (!contactId.equals(contact.getId())) {
             return new ResponseEntity<String>("Bad Request", HttpStatus.BAD_REQUEST);
         }
 

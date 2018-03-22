@@ -1,25 +1,25 @@
 package com.oryx.vo;
 
-import com.oryx.model.IContact;
+import com.oryx.model.IUser;
 
 import java.util.List;
 
-public class ContactListVO {
+public class UserListVO {
     private int pagesCount;
-    private long totalContacts;
+    private long totalUsers;
 
     private String actionMessage;
     private String searchMessage;
 
-    private List<IContact> contacts;
+    private List<IUser> users;
 
-    public ContactListVO() {
+    public UserListVO() {
     }
 
-    public ContactListVO(int pages, long totalContacts, List<IContact> contacts) {
+    public UserListVO(int pages, long totalUsers, List<IUser> users) {
         this.pagesCount = pages;
-        this.contacts = contacts;
-        this.totalContacts = totalContacts;
+        this.users = users;
+        this.totalUsers = totalUsers;
     }
 
     public int getPagesCount() {
@@ -30,20 +30,20 @@ public class ContactListVO {
         this.pagesCount = pagesCount;
     }
 
-    public List<IContact> getContacts() {
-        return contacts;
+    public List<IUser> getUsers() {
+        return users;
     }
 
-    public void setContacts(List<IContact> contacts) {
-        this.contacts = contacts;
+    public void setUsers(List<IUser> users) {
+        this.users = users;
     }
 
-    public long getTotalContacts() {
-        return totalContacts;
+    public long getTotalUsers() {
+        return totalUsers;
     }
 
-    public void setTotalContacts(long totalContacts) {
-        this.totalContacts = totalContacts;
+    public void setTotalUsers(long totalUsers) {
+        this.totalUsers = totalUsers;
     }
 
     public String getActionMessage() {

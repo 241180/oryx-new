@@ -1,5 +1,7 @@
 package com.oryx.model;
 
+import com.oryx.domain.Role;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -14,13 +16,16 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XmlUser", namespace = "http://model.ref.ws.oryx.com")
 @Entity
-@Table(name = "system_user")
-public class User {
-
-    @Id
-    @GeneratedValue
-    private int id;
-
+@Table(
+        name = SchemaTableConstantName.T_USER
+        /*, uniqueConstraints = {
+        @UniqueConstraint(name = "UC_DATE_HOST"
+                , columnNames = {SchemaTableConstantName.T_RDV_DATE, SchemaTableConstantName.T_HOST_ID}),
+        @UniqueConstraint(name = "UC_DATE_GUEST"
+                , columnNames = {SchemaTableConstantName.T_RDV_DATE, SchemaTableConstantName.T_GUEST_ID})}
+                */
+)
+public class IUser extends ITracableCancelableEntity{
     private String email;
     private String name;
     private String enabled;
@@ -29,14 +34,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
     private Role role;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;

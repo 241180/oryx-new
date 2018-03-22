@@ -7,7 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.oryx.repository.ContactRepository;
-import com.oryx.model.Contact;
+import com.oryx.model.IContact;
 import com.oryx.vo.ContactListVO;
 
 @Service
@@ -19,7 +19,7 @@ public class ContactService {
 
     @Transactional(readOnly = true)
     public ContactListVO findAll(int page, int maxResults) {
-        Page<Contact> result = executeQueryFindAll(page, maxResults);
+        Page<IContact> result = executeQueryFindAll(page, maxResults);
 
         if(shouldExecuteSameQueryInLastPage(page, result)){
             int lastPage = result.getTotalPages() - 1;
@@ -29,7 +29,7 @@ public class ContactService {
         return buildResult(result);
     }
 
-    public void save(Contact contact) {
+    public void save(IContact contact) {
         contactRepository.save(contact);
     }
 
@@ -39,7 +39,7 @@ public class ContactService {
 
     @Transactional(readOnly = true)
     public ContactListVO findByNameLike(int page, int maxResults, String name) {
-        Page<Contact> result = executeQueryFindByName(page, maxResults, name);
+        Page<IContact> result = executeQueryFindByName(page, maxResults, name);
 
         if(shouldExecuteSameQueryInLastPage(page, result)){
             int lastPage = result.getTotalPages() - 1;
@@ -49,11 +49,11 @@ public class ContactService {
         return buildResult(result);
     }
 
-    private boolean shouldExecuteSameQueryInLastPage(int page, Page<Contact> result) {
+    private boolean shouldExecuteSameQueryInLastPage(int page, Page<IContact> result) {
         return isUserAfterOrOnLastPage(page, result) && hasDataInDataBase(result);
     }
 
-    private Page<Contact> executeQueryFindAll(int page, int maxResults) {
+    private Page<IContact> executeQueryFindAll(int page, int maxResults) {
         final PageRequest pageRequest = new PageRequest(page, maxResults, sortByNameASC());
 
         return contactRepository.findAll(pageRequest);
@@ -63,21 +63,21 @@ public class ContactService {
         return new Sort(Sort.Direction.ASC, "name");
     }
 
-    private ContactListVO buildResult(Page<Contact> result) {
+    private ContactListVO buildResult(Page<IContact> result) {
         return new ContactListVO(result.getTotalPages(), result.getTotalElements(), result.getContent());
     }
 
-    private Page<Contact> executeQueryFindByName(int page, int maxResults, String name) {
+    private Page<IContact> executeQueryFindByName(int page, int maxResults, String name) {
         final PageRequest pageRequest = new PageRequest(page, maxResults, sortByNameASC());
 
         return contactRepository.findByNameLike(pageRequest, "%" + name + "%");
     }
 
-    private boolean isUserAfterOrOnLastPage(int page, Page<Contact> result) {
+    private boolean isUserAfterOrOnLastPage(int page, Page<IContact> result) {
         return page >= result.getTotalPages() - 1;
     }
 
-    private boolean hasDataInDataBase(Page<Contact> result) {
+    private boolean hasDataInDataBase(Page<IContact> result) {
         return result.getTotalElements() > 0;
     }
 }
