@@ -30,6 +30,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link XmlUser }
+     * 
+     */
+    public XmlUser createXmlUser() {
+        return new XmlUser();
+    }
+
+    /**
      * Create an instance of {@link XmlContact }
      * 
      */
@@ -38,11 +46,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link XmlUser }
+     * Create an instance of {@link XmlTracable }
      * 
      */
-    public XmlUser createXmlUser() {
-        return new XmlUser();
+    public XmlTracable createXmlTracable() {
+        return new XmlTracable();
+    }
+
+    /**
+     * Create an instance of {@link XmlEntity }
+     * 
+     */
+    public XmlEntity createXmlEntity() {
+        return new XmlEntity();
+    }
+
+    /**
+     * Create an instance of {@link XmlCancelable }
+     * 
+     */
+    public XmlCancelable createXmlCancelable() {
+        return new XmlCancelable();
+    }
+
+    /**
+     * Create an instance of {@link XmlTracableEntity }
+     * 
+     */
+    public XmlTracableEntity createXmlTracableEntity() {
+        return new XmlTracableEntity();
+    }
+
+    /**
+     * Create an instance of {@link XmlEnumAnnex }
+     * 
+     */
+    public XmlEnumAnnex createXmlEnumAnnex() {
+        return new XmlEnumAnnex();
+    }
+
+    /**
+     * Create an instance of {@link XmlTracableCancelableEntity }
+     * 
+     */
+    public XmlTracableCancelableEntity createXmlTracableCancelableEntity() {
+        return new XmlTracableCancelableEntity();
+    }
+
+    /**
+     * Create an instance of {@link XmlCancelableEntity }
+     * 
+     */
+    public XmlCancelableEntity createXmlCancelableEntity() {
+        return new XmlCancelableEntity();
     }
 
 }

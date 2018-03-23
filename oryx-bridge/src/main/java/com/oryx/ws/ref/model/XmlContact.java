@@ -14,14 +14,13 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="XmlContact">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{http://model.ref.ws.oryx.com}XmlTracableCancelableEntity">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="phoneNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -30,33 +29,17 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XmlContact", propOrder = {
-    "id",
     "name",
     "phoneNumber",
     "email"
 })
-public class XmlContact {
+public class XmlContact
+    extends XmlTracableCancelableEntity
+{
 
-    protected int id;
     protected String name;
     protected String phoneNumber;
     protected String email;
-
-    /**
-     * Obtient la valeur de la propriété id.
-     * 
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Définit la valeur de la propriété id.
-     * 
-     */
-    public void setId(int value) {
-        this.id = value;
-    }
 
     /**
      * Obtient la valeur de la propriété name.

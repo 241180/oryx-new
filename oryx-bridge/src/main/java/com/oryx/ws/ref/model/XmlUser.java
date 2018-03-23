@@ -16,16 +16,15 @@ import com.oryx.ws.ref.domain.XmlRole;
  * <pre>
  * &lt;complexType name="XmlUser">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{http://model.ref.ws.oryx.com}XmlTracableCancelableEntity">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="enabled" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="role" type="{http://domain.ref.ws.oryx.com}XmlRole" minOccurs="0"/>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -34,38 +33,22 @@ import com.oryx.ws.ref.domain.XmlRole;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XmlUser", propOrder = {
-    "id",
     "email",
     "name",
     "enabled",
     "password",
     "role"
 })
-public class XmlUser {
+public class XmlUser
+    extends XmlTracableCancelableEntity
+{
 
-    protected int id;
     protected String email;
     protected String name;
     protected String enabled;
     protected String password;
     @XmlSchemaType(name = "string")
     protected XmlRole role;
-
-    /**
-     * Obtient la valeur de la propriété id.
-     * 
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Définit la valeur de la propriété id.
-     * 
-     */
-    public void setId(int value) {
-        this.id = value;
-    }
 
     /**
      * Obtient la valeur de la propriété email.

@@ -4,8 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/oryx.iml" filepath="$PROJECT_DIR$/oryx.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-bridge/oryx-bridge.iml" filepath="$PROJECT_DIR$/oryx-bridge/oryx-bridge.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oryx-model/oryx-model.iml" filepath="$PROJECT_DIR$/oryx-model/oryx-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oryx-module/oryx-common-module/oryx-common-module.iml" filepath="$PROJECT_DIR$/oryx-module/oryx-common-module/oryx-common-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oryx-module/oryx-module.iml" filepath="$PROJECT_DIR$/oryx-module/oryx-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-server/oryx-server.iml" filepath="$PROJECT_DIR$/oryx-server/oryx-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oryx-ws-gen/oryx-ws-gen.iml" filepath="$PROJECT_DIR$/oryx-ws-gen/oryx-ws-gen.iml" />
     </modules>
   </component>
 </project>

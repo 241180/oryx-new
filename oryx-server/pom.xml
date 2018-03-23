@@ -7,7 +7,7 @@
     <groupId>com.oryx</groupId>
     <artifactId>oryx-server</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>${owner}: 0010-${artifactId}${nameSuffix}</name>
+    <name>${owner}: 0200-${artifactId}${nameSuffix}</name>
     <packaging>war</packaging>
 
     <parent>
@@ -23,7 +23,7 @@
         <!-- Internal - models -->
         <dependency>
             <groupId>com.oryx</groupId>
-            <artifactId>oryx-model</artifactId>
+            <artifactId>oryx-common-module</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- Hibernate -->

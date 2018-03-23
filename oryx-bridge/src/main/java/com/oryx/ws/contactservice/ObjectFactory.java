@@ -30,19 +30,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link WsRequest }
+     * Create an instance of {@link WsContactRequest }
      * 
      */
-    public WsRequest createWsRequest() {
-        return new WsRequest();
+    public WsContactRequest createWsContactRequest() {
+        return new WsContactRequest();
     }
 
     /**
-     * Create an instance of {@link WsResponse }
+     * Create an instance of {@link WsContactResponse }
      * 
      */
-    public WsResponse createWsResponse() {
-        return new WsResponse();
+    public WsContactResponse createWsContactResponse() {
+        return new WsContactResponse();
     }
 
 }

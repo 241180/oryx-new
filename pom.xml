@@ -20,7 +20,7 @@
         <context.path>${artifactId}</context.path>
         <oryx.server.name>oryx-server</oryx.server.name>
         <oryx.bridge.name>oryx-bridge</oryx.bridge.name>
-        <oryx.model.name>oryx-model</oryx.model.name>
+        <oryx.common.module.name>oryx-common-module</oryx.common.module.name>
 
         <!--dependencies-->
         <spring.version>5.0.4.RELEASE</spring.version>
@@ -127,8 +127,9 @@
     </developers>
 
     <modules>
+        <module>oryx-module</module>
         <module>oryx-server</module>
         <module>oryx-bridge</module>
-        <module>oryx-model</module>
+        <module>oryx-ws-gen</module>
     </modules>
 </project>

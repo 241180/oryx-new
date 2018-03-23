@@ -12,6 +12,6 @@
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 
-		<jar-file>oryx-server/WEB-INF/lib/oryx-model-1.0-SNAPSHOT.jar</jar-file>
+		<jar-file>oryx-server/WEB-INF/lib/oryx-common-module-1.0-SNAPSHOT.jar</jar-file>
 	</persistence-unit>
 </persistence>
