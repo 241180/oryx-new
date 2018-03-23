@@ -1,7 +1,9 @@
 package com.oryx.ws;
 
-import com.oryx.ws.contactservice.*;
-import com.oryx.ws.userservice.*;
+import com.oryx.ws.contactservice.WsContactRequest;
+import com.oryx.ws.contactservice.WsContactResponse;
+import com.oryx.ws.userservice.WsUserRequest;
+import com.oryx.ws.userservice.WsUserResponse;
 import org.apache.log4j.Logger;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -23,14 +25,14 @@ public class ContactServiceEndpoint {
     @PayloadRoot(localPart = TargetNameSpace.REQUEST_LOCAL_PORT_CONTACT, namespace = TargetNameSpace.TARGET_NAMESPACE_CONTACT)
     public
     @ResponsePayload
-    WsContactResponse askContact(@RequestPayload  WsContactRequest request) {
+    WsContactResponse askContact(@RequestPayload WsContactRequest request) {
         return null;
     }
 
     @PayloadRoot(localPart = TargetNameSpace.REQUEST_LOCAL_PORT_USER, namespace = TargetNameSpace.TARGET_NAMESPACE_USER)
     public
     @ResponsePayload
-    WsUserResponse askUser(@RequestPayload  WsUserRequest request) {
+    WsUserResponse askUser(@RequestPayload WsUserRequest request) {
         return null;
     }
 }

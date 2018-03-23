@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/oryx.iml" filepath="$PROJECT_DIR$/oryx.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-bridge/oryx-bridge.iml" filepath="$PROJECT_DIR$/oryx-bridge/oryx-bridge.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-module/oryx-common-module/oryx-common-module.iml" filepath="$PROJECT_DIR$/oryx-module/oryx-common-module/oryx-common-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oryx-crypt/oryx-crypt.iml" filepath="$PROJECT_DIR$/oryx-crypt/oryx-crypt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oryx-module/oryx-jpa-basic-types/oryx-jpa-basic-types.iml" filepath="$PROJECT_DIR$/oryx-module/oryx-jpa-basic-types/oryx-jpa-basic-types.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-module/oryx-module.iml" filepath="$PROJECT_DIR$/oryx-module/oryx-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-server/oryx-server.iml" filepath="$PROJECT_DIR$/oryx-server/oryx-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-ws-gen/oryx-ws-gen.iml" filepath="$PROJECT_DIR$/oryx-ws-gen/oryx-ws-gen.iml" />

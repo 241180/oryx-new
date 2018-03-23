@@ -1,0 +1,6 @@
+com\oryx\model\ComSchemaColumnConstantName.class
+com\oryx\model\basic\IEntity.class
+com\oryx\model\basic\ITracableEntity.class
+com\oryx\model\basic\ITracableCancelableEntity.class
+com\oryx\model\ComSchemaConstantSize.class
+com\oryx\model\basic\ICancelableEntity.class

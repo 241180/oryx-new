@@ -31,7 +31,8 @@
     </licenses>
 
     <properties>
-        <wsdlUrl.prefix.local>http://${tomcat.server.host}:${tomcat.server.port}/${oryx.server.name}</wsdlUrl.prefix.local>
+        <wsdlUrl.prefix.local>http://${tomcat.server.host}:${tomcat.server.port}/${oryx.server.name}
+        </wsdlUrl.prefix.local>
     </properties>
 
     <dependencies>

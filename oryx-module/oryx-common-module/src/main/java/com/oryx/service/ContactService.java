@@ -1,14 +1,14 @@
 package com.oryx.service;
 
+import com.oryx.model.IContact;
+import com.oryx.repository.ContactRepository;
+import com.oryx.vo.ContactListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.oryx.repository.ContactRepository;
-import com.oryx.model.IContact;
-import com.oryx.vo.ContactListVO;
 
 @Service
 @Transactional
@@ -21,7 +21,7 @@ public class ContactService {
     public ContactListVO findAll(int page, int maxResults) {
         Page<IContact> result = executeQueryFindAll(page, maxResults);
 
-        if(shouldExecuteSameQueryInLastPage(page, result)){
+        if (shouldExecuteSameQueryInLastPage(page, result)) {
             int lastPage = result.getTotalPages() - 1;
             result = executeQueryFindAll(lastPage, maxResults);
         }
@@ -41,7 +41,7 @@ public class ContactService {
     public ContactListVO findByNameLike(int page, int maxResults, String name) {
         Page<IContact> result = executeQueryFindByName(page, maxResults, name);
 
-        if(shouldExecuteSameQueryInLastPage(page, result)){
+        if (shouldExecuteSameQueryInLastPage(page, result)) {
             int lastPage = result.getTotalPages() - 1;
             result = executeQueryFindByName(lastPage, maxResults, name);
         }

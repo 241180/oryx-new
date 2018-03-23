@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="oryx-bridge" />
         <module name="oryx-common-module" />
+        <module name="oryx-crypt" />
+        <module name="oryx-jpa-basic-types" />
         <module name="oryx-model" />
         <module name="oryx-server" />
         <module name="oryx-ws-gen" />
@@ -17,6 +19,8 @@
       <module name="oryx" target="1.5" />
       <module name="oryx-bridge" target="1.8" />
       <module name="oryx-common-module" target="1.8" />
+      <module name="oryx-crypt" target="1.8" />
+      <module name="oryx-jpa-basic-types" target="1.8" />
       <module name="oryx-model" target="1.8" />
       <module name="oryx-module" target="1.5" />
       <module name="oryx-server" target="1.8" />

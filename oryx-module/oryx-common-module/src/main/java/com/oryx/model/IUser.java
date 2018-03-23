@@ -1,13 +1,9 @@
 package com.oryx.model;
 
-import com.oryx.domain.IEnumCrudOperation;
 import com.oryx.domain.IEnumRole;
+import com.oryx.model.basic.ITracableCancelableEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -24,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
                 , columnNames = {SchemaTableConstantName.T_RDV_DATE, SchemaTableConstantName.T_GUEST_ID})}
                 */
 )
-public class IUser extends ITracableCancelableEntity{
+public class IUser extends ITracableCancelableEntity {
     private String email;
     private String name;
     private String enabled;

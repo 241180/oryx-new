@@ -21,6 +21,7 @@
         <oryx.server.name>oryx-server</oryx.server.name>
         <oryx.bridge.name>oryx-bridge</oryx.bridge.name>
         <oryx.common.module.name>oryx-common-module</oryx.common.module.name>
+        <oryx.oryx-jpa.name>oryx-jpq-basic-types</oryx.oryx-jpa.name>
 
         <!--dependencies-->
         <spring.version>5.0.4.RELEASE</spring.version>
@@ -127,6 +128,7 @@
     </developers>
 
     <modules>
+        <module>oryx-crypt</module>
         <module>oryx-module</module>
         <module>oryx-server</module>
         <module>oryx-bridge</module>

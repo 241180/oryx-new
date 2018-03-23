@@ -1,4 +1,3 @@
-
 package com.oryx.ws.ref.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java pour XmlContact complex type.
- * 
+ * <p>
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="XmlContact">
  *   &lt;complexContent>
@@ -24,18 +23,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XmlContact", propOrder = {
-    "name",
-    "phoneNumber",
-    "email"
+        "name",
+        "phoneNumber",
+        "email"
 })
 public class XmlContact
-    extends XmlTracableCancelableEntity
-{
+        extends XmlTracableCancelableEntity {
 
     protected String name;
     protected String phoneNumber;
@@ -43,11 +39,9 @@ public class XmlContact
 
     /**
      * Obtient la valeur de la propriété name.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -55,11 +49,9 @@ public class XmlContact
 
     /**
      * Définit la valeur de la propriété name.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -67,11 +59,9 @@ public class XmlContact
 
     /**
      * Obtient la valeur de la propriété phoneNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPhoneNumber() {
         return phoneNumber;
@@ -79,11 +69,9 @@ public class XmlContact
 
     /**
      * Définit la valeur de la propriété phoneNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPhoneNumber(String value) {
         this.phoneNumber = value;
@@ -91,11 +79,9 @@ public class XmlContact
 
     /**
      * Obtient la valeur de la propriété email.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getEmail() {
         return email;
@@ -103,11 +89,9 @@ public class XmlContact
 
     /**
      * Définit la valeur de la propriété email.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setEmail(String value) {
         this.email = value;

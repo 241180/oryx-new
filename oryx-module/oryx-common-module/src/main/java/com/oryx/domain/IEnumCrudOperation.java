@@ -2,9 +2,9 @@ package com.oryx.domain;
 
 import javax.xml.bind.annotation.*;
 
-public interface IEnumCrudOperation{
+public interface IEnumCrudOperation {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlCrudOperation", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "XmlEnumCrudOperation", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("CREATE")

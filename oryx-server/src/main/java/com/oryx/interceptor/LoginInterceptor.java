@@ -1,9 +1,9 @@
 package com.oryx.interceptor;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.oryx.model.IUser;
 import com.oryx.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +19,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         HttpSession session = request.getSession();
 
         IUser user = (IUser) session.getAttribute("user");
-        if(user == null){
+        if (user == null) {
             //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             String email = "sami.mbarki@gmail.com";
             user = userService.findByEmail(email);

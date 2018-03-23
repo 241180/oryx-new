@@ -1,18 +1,18 @@
-
 package com.oryx.ws.ref.model;
+
+import com.oryx.ws.ref.domain.XmlRole;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import com.oryx.ws.ref.domain.XmlRole;
 
 
 /**
  * <p>Classe Java pour XmlUser complex type.
- * 
+ * <p>
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="XmlUser">
  *   &lt;complexContent>
@@ -28,20 +28,17 @@ import com.oryx.ws.ref.domain.XmlRole;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XmlUser", propOrder = {
-    "email",
-    "name",
-    "enabled",
-    "password",
-    "role"
+        "email",
+        "name",
+        "enabled",
+        "password",
+        "role"
 })
 public class XmlUser
-    extends XmlTracableCancelableEntity
-{
+        extends XmlTracableCancelableEntity {
 
     protected String email;
     protected String name;
@@ -52,11 +49,9 @@ public class XmlUser
 
     /**
      * Obtient la valeur de la propriété email.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getEmail() {
         return email;
@@ -64,11 +59,9 @@ public class XmlUser
 
     /**
      * Définit la valeur de la propriété email.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setEmail(String value) {
         this.email = value;
@@ -76,11 +69,9 @@ public class XmlUser
 
     /**
      * Obtient la valeur de la propriété name.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -88,11 +79,9 @@ public class XmlUser
 
     /**
      * Définit la valeur de la propriété name.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -100,11 +89,9 @@ public class XmlUser
 
     /**
      * Obtient la valeur de la propriété enabled.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getEnabled() {
         return enabled;
@@ -112,11 +99,9 @@ public class XmlUser
 
     /**
      * Définit la valeur de la propriété enabled.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setEnabled(String value) {
         this.enabled = value;
@@ -124,11 +109,9 @@ public class XmlUser
 
     /**
      * Obtient la valeur de la propriété password.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPassword() {
         return password;
@@ -136,11 +119,9 @@ public class XmlUser
 
     /**
      * Définit la valeur de la propriété password.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPassword(String value) {
         this.password = value;
@@ -148,11 +129,9 @@ public class XmlUser
 
     /**
      * Obtient la valeur de la propriété role.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XmlRole }
-     *     
+     *
+     * @return possible object is
+     * {@link XmlRole }
      */
     public XmlRole getRole() {
         return role;
@@ -160,11 +139,9 @@ public class XmlUser
 
     /**
      * Définit la valeur de la propriété role.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XmlRole }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XmlRole }
      */
     public void setRole(XmlRole value) {
         this.role = value;

@@ -2,9 +2,9 @@ package com.oryx.domain;
 
 import javax.xml.bind.annotation.*;
 
-public interface IEnumRole{
+public interface IEnumRole {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlRole", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "XmlEnumRole", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("ADMIN")

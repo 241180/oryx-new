@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>${parent.groupId}</groupId>
+    <artifactId>oryx-crypt</artifactId>
+    <version>${project.parent.version}</version>
+    <packaging>jar</packaging>
+    <name>${owner}: 0701-${artifactId}${nameSuffix}</name>
+
+    <parent>
+        <groupId>com.oryx</groupId>
+        <artifactId>oryx</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <description></description>
+    <url></url>
+
+    <properties>
+    </properties>
+
+    <modules>
+    </modules>
+
+    <licenses>
+        <license>
+            <name></name>
+            <url></url>
+            <distribution></distribution>
+        </license>
+    </licenses>
+
+    <!-- Build Rules -->
+    <build>
+        <!-- Sources and resources -->
+        <sourceDirectory>src</sourceDirectory>
+        <scriptSourceDirectory>scripts</scriptSourceDirectory>
+        <testSourceDirectory>tests</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>testdata</directory>
+            </testResource>
+        </testResources>
+
+        <!-- The following plugins define the actual build processes -->
+        <plugins>
+            <!-- Compiler settings.  Java 1.5 is currently the default, but we set
+             it to be safe. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!-- Rule to build a jar of the sources -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <configuration>
+                    <outputDirectory>${basedir}/target/</outputDirectory>
+                    <includes>
+                        <include>**/*.java</include>
+                        <include>**/*.properties</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Rule to run the JUnit tests  -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/interop/Tester.java</exclude>
+                        <exclude>**/SymmetricPerformanceTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- Rule to copy i18n properties to output directory -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/com/oryx/i18n</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/com/oryx/i18n</directory>
+                                    <includes>
+                                        <include>**/*.properties</include>
+                                    </includes>
+                                </resource>
+                                <resource>
+                                    <directory>src/com/oryx</directory>
+                                    <includes>
+                                        <include>COPYING</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <!-- Dependencies required at runtime -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20080701</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Dependencies required for testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency> <!-- Logback is only used for tests. -->
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.1</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+</project>

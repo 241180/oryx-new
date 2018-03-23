@@ -1,21 +1,17 @@
-
 package com.oryx.ws.userservice;
 
+import com.oryx.ws.ref.model.XmlUser;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import com.oryx.ws.ref.model.XmlUser;
 
 
 /**
  * <p>Classe Java pour anonymous complex type.
- * 
+ * <p>
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ * <p>
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -28,13 +24,11 @@ import com.oryx.ws.ref.model.XmlUser;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "request",
-    "conact"
+        "request",
+        "conact"
 })
 @XmlRootElement(name = "wsUserResponse")
 public class WsUserResponse {
@@ -46,11 +40,9 @@ public class WsUserResponse {
 
     /**
      * Obtient la valeur de la propriété request.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRequest() {
         return request;
@@ -58,11 +50,9 @@ public class WsUserResponse {
 
     /**
      * Définit la valeur de la propriété request.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRequest(String value) {
         this.request = value;
@@ -70,25 +60,23 @@ public class WsUserResponse {
 
     /**
      * Gets the value of the conact property.
-     * 
+     * <p>
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the conact property.
-     * 
+     * <p>
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getConact().add(newItem);
      * </pre>
-     * 
-     * 
+     * <p>
+     * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link XmlUser }
-     * 
-     * 
      */
     public List<XmlUser> getConact() {
         if (conact == null) {

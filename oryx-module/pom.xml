@@ -20,6 +20,7 @@
     <url></url>
 
     <modules>
+        <module>oryx-jpa-basic-types</module>
         <module>oryx-common-module</module>
     </modules>
 </project>

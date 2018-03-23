@@ -101,4 +101,5 @@ public interface SchemaColumnConstantName extends ComSchemaColumnConstantName {
     public static final String T_BILL_STATUS = "BILL_STATUS";
     public static final String T_CART_STATUS = "CART_STATUS";
     public static final String T_CART_ID = "CART_ID";
+    public static final String T_PERSON_UID = "PERSON_UID";
 }

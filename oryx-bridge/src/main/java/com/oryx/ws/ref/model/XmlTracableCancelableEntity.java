@@ -1,21 +1,16 @@
-
 package com.oryx.ws.ref.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
  * Created by smbarki on 22/03/2018.
- * 
+ * <p>
  * <p>Classe Java pour XmlTracableCancelableEntity complex type.
- * 
+ * <p>
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="XmlTracableCancelableEntity">
  *   &lt;complexContent>
@@ -29,22 +24,19 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XmlTracableCancelableEntity", propOrder = {
-    "cancelBy",
-    "cancelDate",
-    "checkCancel"
+        "cancelBy",
+        "cancelDate",
+        "checkCancel"
 })
 @XmlSeeAlso({
-    XmlUser.class,
-    XmlContact.class
+        XmlUser.class,
+        XmlContact.class
 })
 public class XmlTracableCancelableEntity
-    extends XmlTracableEntity
-{
+        extends XmlTracableEntity {
 
     protected String cancelBy;
     @XmlSchemaType(name = "dateTime")
@@ -53,11 +45,9 @@ public class XmlTracableCancelableEntity
 
     /**
      * Obtient la valeur de la propriété cancelBy.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCancelBy() {
         return cancelBy;
@@ -65,11 +55,9 @@ public class XmlTracableCancelableEntity
 
     /**
      * Définit la valeur de la propriété cancelBy.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCancelBy(String value) {
         this.cancelBy = value;
@@ -77,11 +65,9 @@ public class XmlTracableCancelableEntity
 
     /**
      * Obtient la valeur de la propriété cancelDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getCancelDate() {
         return cancelDate;
@@ -89,11 +75,9 @@ public class XmlTracableCancelableEntity
 
     /**
      * Définit la valeur de la propriété cancelDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setCancelDate(XMLGregorianCalendar value) {
         this.cancelDate = value;
@@ -101,7 +85,6 @@ public class XmlTracableCancelableEntity
 
     /**
      * Obtient la valeur de la propriété checkCancel.
-     * 
      */
     public boolean isCheckCancel() {
         return checkCancel;
@@ -109,7 +92,6 @@ public class XmlTracableCancelableEntity
 
     /**
      * Définit la valeur de la propriété checkCancel.
-     * 
      */
     public void setCheckCancel(boolean value) {
         this.checkCancel = value;

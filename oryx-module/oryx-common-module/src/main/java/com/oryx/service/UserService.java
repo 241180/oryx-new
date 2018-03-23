@@ -1,9 +1,9 @@
 package com.oryx.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.oryx.model.IUser;
 import com.oryx.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
@@ -11,7 +11,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public IUser findByEmail(String email){
+    public IUser findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 }
