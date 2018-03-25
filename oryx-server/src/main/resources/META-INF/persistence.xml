@@ -13,5 +13,10 @@
         </properties>
 
         <jar-file>oryx-server/WEB-INF/lib/oryx-common-module-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>oryx-server/WEB-INF/lib/oryx-bu-billing-module-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>oryx-server/WEB-INF/lib/oryx-bu-health-module-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>oryx-server/WEB-INF/lib/oryx-bu-sale-module-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>oryx-server/WEB-INF/lib/oryx-bu-stock-module-1.0-SNAPSHOT.jar</jar-file>
+
     </persistence-unit>
 </persistence>

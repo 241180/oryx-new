@@ -26,6 +26,7 @@ public interface SchemaTableConstantName extends ComSchemaColumnConstantName {
     public static final String T_ERROR_MESSAGE = "T_ERROR_MESSAGE";
     public static final String T_TRANSLATION = "T_TRANSLATION";
     public static final String T_CONTACT = "T_CONTACT";
+    public static final String T_TEST_CONTACT = "T_TEST_CONTACT";
     public static final String T_STATE = "T_STATE";
     public static final String T_COUNTRY = "T_COUNTRY";
     public static final String T_UPGRADES = "T_UPGRADES";

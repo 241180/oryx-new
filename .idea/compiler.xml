@@ -7,6 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="oryx-bridge" />
+        <module name="oryx-bu-billing-module" />
+        <module name="oryx-bu-health-module" />
+        <module name="oryx-bu-sale-module" />
+        <module name="oryx-bu-stock-module" />
         <module name="oryx-common-module" />
         <module name="oryx-crypt" />
         <module name="oryx-jpa-basic-types" />
@@ -18,6 +22,10 @@
     <bytecodeTargetLevel>
       <module name="oryx" target="1.5" />
       <module name="oryx-bridge" target="1.8" />
+      <module name="oryx-bu-billing-module" target="1.8" />
+      <module name="oryx-bu-health-module" target="1.8" />
+      <module name="oryx-bu-sale-module" target="1.8" />
+      <module name="oryx-bu-stock-module" target="1.8" />
       <module name="oryx-common-module" target="1.8" />
       <module name="oryx-crypt" target="1.8" />
       <module name="oryx-jpa-basic-types" target="1.8" />

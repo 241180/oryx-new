@@ -22,5 +22,9 @@
     <modules>
         <module>oryx-jpa-basic-types</module>
         <module>oryx-common-module</module>
+        <module>oryx-bu-billing-module</module>
+        <module>oryx-bu-health-module</module>
+        <module>oryx-bu-sale-module</module>
+        <module>oryx-bu-stock-module</module>
     </modules>
 </project>

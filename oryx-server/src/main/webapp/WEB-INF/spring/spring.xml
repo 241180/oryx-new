@@ -18,5 +18,5 @@
     <import resource="spring-jpa.xml"/>
 
     <!-- SpringWS -->
-    <import resource="classpath:spring/spring-model.xml"/>
+    <import resource="classpath:spring/spring-common-module.xml"/>
 </beans>

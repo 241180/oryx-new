@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "XmlContact", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
-        name = SchemaTableConstantName.T_CONTACT
+        name = SchemaTableConstantName.T_TEST_CONTACT
         /*, uniqueConstraints = {
         @UniqueConstraint(name = "UC_DATE_HOST"
                 , columnNames = {SchemaTableConstantName.T_RDV_DATE, SchemaTableConstantName.T_HOST_ID}),
