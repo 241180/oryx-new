@@ -1,6 +1,6 @@
 package com.oryx.model.system.ose;
 
-import com.oryx.domain.EnumStatus;
+import com.oryx.domain.IEnumStatus;
 import com.oryx.model.*;
 import com.oryx.model.basic.ITracableCancelableEntity;
 import org.hibernate.annotations.ForeignKey;
@@ -32,7 +32,7 @@ public class Menu extends ITracableCancelableEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_STATUS, length = SchemaConstantSize.CODE, nullable = false)
-    private EnumStatus status;
+    private IEnumStatus.Types status;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = SchemaTableConstantName.T_ASSO_MENU_TASK,
@@ -66,11 +66,11 @@ public class Menu extends ITracableCancelableEntity {
         this.name = name;
     }
 
-    public EnumStatus getStatus() {
+    public IEnumStatus.Types getStatus() {
         return status;
     }
 
-    public void setStatus(EnumStatus status) {
+    public void setStatus(IEnumStatus.Types status) {
         this.status = status;
     }
 

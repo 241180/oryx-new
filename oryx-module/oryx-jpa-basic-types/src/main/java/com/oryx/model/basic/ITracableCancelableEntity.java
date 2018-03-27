@@ -1,7 +1,9 @@
 package com.oryx.model.basic;
 
+import com.oryx.model.ComSchemaColumnConstantName;
 import com.oryx.model.basic.ITracableEntity;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
@@ -12,32 +14,48 @@ import java.util.Date;
 
 @XmlType(name = "XmlTracableCancelableEntity", namespace = "http://model.ref.ws.oryx.com")
 @MappedSuperclass
-public class ITracableCancelableEntity extends ITracableEntity {
-    private boolean checkCancel;
-    private Date cancelDate;
-    private String cancelBy;
+public class ITracableCancelableEntity extends ICancelableEntity {
+    @Column(name = ComSchemaColumnConstantName.T_CREATE_DATE)
+    private Date creatDate;
 
-    public boolean isCheckCancel() {
-        return checkCancel;
+    @Column(name = ComSchemaColumnConstantName.T_CREATED_BY)
+    private String creatBy;
+
+    @Column(name = ComSchemaColumnConstantName.T_UPDATE_DATE)
+    private Date updateDate;
+
+    @Column(name = ComSchemaColumnConstantName.T_UPDATED_BY)
+    private String updatedBy;
+
+    public Date getCreateDate() {
+        return creatDate;
     }
 
-    public void setCheckCancel(boolean checkCancel) {
-        this.checkCancel = checkCancel;
+    public void setCreateDate(Date createDate) {
+        this.creatDate = createDate;
     }
 
-    public Date getCancelDate() {
-        return cancelDate;
+    public String getCreatedBy() {
+        return creatBy;
     }
 
-    public void setCancelDate(Date cancelDate) {
-        this.cancelDate = cancelDate;
+    public void setCreatedBy(String createdBy) {
+        this.creatBy = createdBy;
     }
 
-    public String getCancelBy() {
-        return cancelBy;
+    public Date getUpdateDate() {
+        return updateDate;
     }
 
-    public void setCancelBy(String cancelBy) {
-        this.cancelBy = cancelBy;
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }

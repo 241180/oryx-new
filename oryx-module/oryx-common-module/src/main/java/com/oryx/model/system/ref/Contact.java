@@ -1,14 +1,12 @@
 package com.oryx.model.system.ref;
 
-import com.oryx.domain.EnumContact;
+import com.oryx.domain.IEnumContact;
 import com.oryx.model.basic.ITracableCancelableEntity;
 import com.oryx.model.SchemaColumnConstantName;
 import com.oryx.model.SchemaConstantSize;
 import com.oryx.model.SchemaTableConstantName;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -22,8 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 )
 public class Contact extends ITracableCancelableEntity {
 
+    @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_CONTACT_TYPE, length = SchemaConstantSize.TYPE, nullable = false)
-    private EnumContact contactType;
+    private IEnumContact.Types contactType;
 
     @Column(name = SchemaColumnConstantName.T_CONTACT_VALUE, length = SchemaConstantSize.M_VALUE, nullable = false)
     private String value;
@@ -38,11 +37,11 @@ public class Contact extends ITracableCancelableEntity {
         return new Contact();
     }
 
-    public EnumContact getContactType() {
+    public IEnumContact.Types getContactType() {
         return contactType;
     }
 
-    public void setContactType(EnumContact contactType) {
+    public void setContactType(IEnumContact.Types contactType) {
         this.contactType = contactType;
     }
 

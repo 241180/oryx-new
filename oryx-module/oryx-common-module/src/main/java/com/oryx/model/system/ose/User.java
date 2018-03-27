@@ -1,8 +1,8 @@
 package com.oryx.model.system.ose;
 
-import com.oryx.domain.EnumLanguage;
-import com.oryx.domain.EnumStatus;
-import com.oryx.domain.EnumUserRole;
+import com.oryx.domain.IEnumLanguage;
+import com.oryx.domain.IEnumStatus;
+import com.oryx.domain.IEnumUserRole;
 import com.oryx.listener.system.ref.UserListener;
 import com.oryx.model.*;
 import com.oryx.model.basic.ITracableCancelableEntity;
@@ -56,7 +56,7 @@ public class User extends ITracableCancelableEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = ComSchemaColumnConstantName.T_LANG_CODE, length = ComSchemaConstantSize.LANG_CODE)
-    private EnumLanguage language;
+    private IEnumLanguage.Types language;
 
     @Column(name = SchemaColumnConstantName.T_LAST_CONNECTION)
     @Temporal(TemporalType.TIMESTAMP)
@@ -64,11 +64,11 @@ public class User extends ITracableCancelableEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_USER_ROLE, length = SchemaConstantSize.CODE/*, nullable = false*/)
-    private EnumUserRole role;
+    private IEnumUserRole.Types role;
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_STATUS, length = SchemaConstantSize.CODE/*, nullable = false*/)
-    private EnumStatus status;
+    private IEnumStatus.Types status;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = SchemaColumnConstantName.T_PERSON_ID)
@@ -133,19 +133,19 @@ public class User extends ITracableCancelableEntity {
         this.lastConnection = lastConnection;
     }
 
-    public EnumUserRole getRole() {
+    public IEnumUserRole.Types getRole() {
         return role;
     }
 
-    public void setRole(EnumUserRole role) {
+    public void setRole(IEnumUserRole.Types role) {
         this.role = role;
     }
 
-    public EnumStatus getStatus() {
+    public IEnumStatus.Types getStatus() {
         return status;
     }
 
-    public void setStatus(EnumStatus status) {
+    public void setStatus(IEnumStatus.Types status) {
         this.status = status;
     }
 
@@ -197,11 +197,11 @@ public class User extends ITracableCancelableEntity {
         this.userCode = userCode;
     }
 
-    public EnumLanguage getLanguage() {
+    public IEnumLanguage.Types getLanguage() {
         return language;
     }
 
-    public void setLanguage(EnumLanguage language) {
+    public void setLanguage(IEnumLanguage.Types language) {
         this.language = language;
     }
 

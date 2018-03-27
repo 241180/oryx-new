@@ -1,5 +1,8 @@
 package com.oryx.model.basic;
 
+import com.oryx.model.ComSchemaColumnConstantName;
+
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
@@ -11,33 +14,40 @@ import java.util.Date;
 @XmlType(name = "XmlTracableEntity", namespace = "http://model.ref.ws.oryx.com")
 @MappedSuperclass
 public class ITracableEntity extends IEntity {
-    private Date createdDate;
-    private String createdBy;
-    private Date updatedDate;
+    @Column(name = ComSchemaColumnConstantName.T_CREATE_DATE)
+    private Date creatDate;
+
+    @Column(name = ComSchemaColumnConstantName.T_CREATED_BY)
+    private String creatBy;
+
+    @Column(name = ComSchemaColumnConstantName.T_UPDATE_DATE)
+    private Date updateDate;
+
+    @Column(name = ComSchemaColumnConstantName.T_UPDATED_BY)
     private String updatedBy;
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreateDate() {
+        return creatDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setCreateDate(Date createDate) {
+        this.creatDate = createDate;
     }
 
     public String getCreatedBy() {
-        return createdBy;
+        return creatBy;
     }
 
     public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
+        this.creatBy = createdBy;
     }
 
-    public Date getUpdatedDate() {
-        return updatedDate;
+    public Date getUpdateDate() {
+        return updateDate;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 
     public String getUpdatedBy() {

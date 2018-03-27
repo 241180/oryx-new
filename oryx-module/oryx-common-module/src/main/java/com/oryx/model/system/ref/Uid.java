@@ -1,6 +1,6 @@
 package com.oryx.model.system.ref;
 
-import com.oryx.domain.EnumUID;
+import com.oryx.domain.IEnumUID;
 import com.oryx.model.basic.ITracableCancelableEntity;
 import com.oryx.model.SchemaColumnConstantName;
 import com.oryx.model.SchemaConstantSize;
@@ -26,7 +26,7 @@ public class Uid extends ITracableCancelableEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_UID_TYPE, length = SchemaConstantSize.TYPE/* , nullable = false */)
-    private EnumUID uidType;
+    private IEnumUID.Types uidType;
 
     @Column(name = SchemaColumnConstantName.T_UID_VALUE, length = SchemaConstantSize.M_VALUE)
     private String uid;
@@ -41,11 +41,11 @@ public class Uid extends ITracableCancelableEntity {
         return new Uid();
     }
 
-    public EnumUID getUidType() {
+    public IEnumUID.Types getUidType() {
         return uidType;
     }
 
-    public void setUidType(EnumUID uidType) {
+    public void setUidType(IEnumUID.Types uidType) {
         this.uidType = uidType;
     }
 

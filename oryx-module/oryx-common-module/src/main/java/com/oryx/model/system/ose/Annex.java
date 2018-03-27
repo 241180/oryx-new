@@ -1,15 +1,12 @@
 package com.oryx.model.system.ose;
 
-import com.oryx.domain.EnumLanguage;
+import com.oryx.domain.IEnumLanguage;
 import com.oryx.model.basic.ITracableCancelableEntity;
 import com.oryx.model.SchemaColumnConstantName;
 import com.oryx.model.SchemaConstantSize;
 import com.oryx.model.SchemaTableConstantName;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -32,8 +29,9 @@ public class Annex extends ITracableCancelableEntity {
     @Column(name = SchemaColumnConstantName.T_ANNEX_CODE, length = SchemaConstantSize.TABLE_CODE, nullable = false)
     private String tableCode;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_LANGUAGE_CODE, length = SchemaConstantSize.LANG_CODE, nullable = false)
-    private EnumLanguage langage;
+    private IEnumLanguage.Types langage;
 
     @Column(name = SchemaColumnConstantName.T_ANNEX_VALUE, length = SchemaConstantSize.S_VALUE, nullable = false)
     private String value;
@@ -62,11 +60,11 @@ public class Annex extends ITracableCancelableEntity {
         this.tableCode = tableCode;
     }
 
-    public EnumLanguage getLangage() {
+    public IEnumLanguage.Types getLangage() {
         return langage;
     }
 
-    public void setLangage(EnumLanguage langage) {
+    public void setLangage(IEnumLanguage.Types langage) {
         this.langage = langage;
     }
 

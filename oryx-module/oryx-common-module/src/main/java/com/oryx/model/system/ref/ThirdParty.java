@@ -1,6 +1,6 @@
 package com.oryx.model.system.ref;
 
-import com.oryx.domain.EnumLanguage;
+import com.oryx.domain.IEnumLanguage;
 import com.oryx.listener.system.ref.ThirdPartyListener;
 import com.oryx.model.*;
 import com.oryx.model.basic.ITracableCancelableEntity;
@@ -41,7 +41,7 @@ public class ThirdParty extends ITracableCancelableEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = ComSchemaColumnConstantName.T_LANG_CODE, length = ComSchemaConstantSize.LANG_CODE)
-    private EnumLanguage language;
+    private IEnumLanguage.Types language;
 
     @Column(name = SchemaColumnConstantName.T_PHONE_NUMBER, length = SchemaConstantSize.PHONE_NUMBER)
     private String defaultPhoneNumber;
@@ -82,5 +82,77 @@ public class ThirdParty extends ITracableCancelableEntity {
     @Override
     public Object newXmlInstance() {
         return new ThirdParty();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getDescriptionTextArea() {
+        return descriptionTextArea;
+    }
+
+    public void setDescriptionTextArea(String descriptionTextArea) {
+        this.descriptionTextArea = descriptionTextArea;
+    }
+
+    public IEnumLanguage.Types getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(IEnumLanguage.Types language) {
+        this.language = language;
+    }
+
+    public String getDefaultPhoneNumber() {
+        return defaultPhoneNumber;
+    }
+
+    public void setDefaultPhoneNumber(String defaultPhoneNumber) {
+        this.defaultPhoneNumber = defaultPhoneNumber;
+    }
+
+    public Set<Adress> getAdressSet() {
+        return adressSet;
+    }
+
+    public void setAdressSet(Set<Adress> adressSet) {
+        this.adressSet = adressSet;
+    }
+
+    public List<UUID> getAdressIds() {
+        return adressIds;
+    }
+
+    public void setAdressIds(List<UUID> adressIds) {
+        this.adressIds = adressIds;
+    }
+
+    public Set<Contact> getContactSet() {
+        return contactSet;
+    }
+
+    public void setContactSet(Set<Contact> contactSet) {
+        this.contactSet = contactSet;
+    }
+
+    public List<UUID> getContactIds() {
+        return contactIds;
+    }
+
+    public void setContactIds(List<UUID> contactIds) {
+        this.contactIds = contactIds;
     }
 }

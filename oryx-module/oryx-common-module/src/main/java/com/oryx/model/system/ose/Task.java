@@ -1,7 +1,7 @@
 package com.oryx.model.system.ose;
 
-import com.oryx.domain.EnumPermission;
-import com.oryx.domain.EnumStatus;
+import com.oryx.domain.IEnumPermission;
+import com.oryx.domain.IEnumStatus;
 import com.oryx.model.basic.ITracableCancelableEntity;
 import com.oryx.model.SchemaColumnConstantName;
 import com.oryx.model.SchemaConstantSize;
@@ -29,14 +29,14 @@ public class Task extends ITracableCancelableEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_PERMISSION, length = SchemaConstantSize.CODE, nullable = false)
-    private EnumPermission permission;
+    private IEnumPermission.Types permission;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION)
     private String descriptionTextArea;
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_STATUS, length = SchemaConstantSize.CODE, nullable = false)
-    private EnumStatus status;
+    private IEnumStatus.Types status;
 
     @Column(name = SchemaColumnConstantName.T_MENU_PATH, length = SchemaConstantSize.L_DESCRIPTION)
     private String menuPath;
@@ -59,11 +59,11 @@ public class Task extends ITracableCancelableEntity {
         this.name = name;
     }
 
-    public EnumStatus getStatus() {
+    public IEnumStatus.Types getStatus() {
         return status;
     }
 
-    public void setStatus(EnumStatus status) {
+    public void setStatus(IEnumStatus.Types status) {
         this.status = status;
     }
 
@@ -75,11 +75,11 @@ public class Task extends ITracableCancelableEntity {
         this.descriptionTextArea = description;
     }
 
-    public EnumPermission getPermission() {
+    public IEnumPermission.Types getPermission() {
         return permission;
     }
 
-    public void setPermission(EnumPermission permission) {
+    public void setPermission(IEnumPermission.Types permission) {
         this.permission = permission;
     }
 

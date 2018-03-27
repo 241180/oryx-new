@@ -2,20 +2,21 @@ package com.oryx.domain;
 
 import javax.xml.bind.annotation.*;
 
-public interface IEnumCrudOperation {
+public interface IEnumPermission {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlEnumCrudOperation", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "XmlEnumPermission", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
-        @XmlEnumValue("CREATE")
+        @XmlEnumValue("Full")
+        FULL("Full"),
+        @XmlEnumValue("Select")
+        SELECT("Select"),
+        @XmlEnumValue("Create")
         CREATE("Create"),
-        @XmlEnumValue("UPDATE")
+        @XmlEnumValue("Update")
         UPDATE("Update"),
-        @XmlEnumValue("DELETE")
-        DELETE("Delete"),
-        FETCH_BY_ID("Fetch by id"),
-        FETCH_ALL("Fetch all"),
-        FETCH_BY_CRITERIA("Fetch by criteria");
+        @XmlEnumValue("Delete")
+        DELETE("Delete");
 
         private final String meaning;
 

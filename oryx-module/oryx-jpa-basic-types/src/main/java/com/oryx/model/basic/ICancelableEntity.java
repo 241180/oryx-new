@@ -1,5 +1,8 @@
 package com.oryx.model.basic;
 
+import com.oryx.model.ComSchemaColumnConstantName;
+
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
@@ -10,9 +13,14 @@ import java.util.Date;
 @XmlType(name = "XmlCancelableEntity", namespace = "http://model.ref.ws.oryx.com")
 @MappedSuperclass
 public class ICancelableEntity extends IEntity {
+    @Column(name = ComSchemaColumnConstantName.T_CHECK_CANCEL)
     private boolean checkCancel;
+
+    @Column(name = ComSchemaColumnConstantName.T_CANCEL_DATE)
     private Date cancelDate;
-    private String cancelBy;
+
+    @Column(name = ComSchemaColumnConstantName.T_CANCELED_BY)
+    private String canceledBy;
 
     public boolean isCheckCancel() {
         return checkCancel;
@@ -30,11 +38,11 @@ public class ICancelableEntity extends IEntity {
         this.cancelDate = cancelDate;
     }
 
-    public String getCancelBy() {
-        return cancelBy;
+    public String getCanceledBy() {
+        return canceledBy;
     }
 
-    public void setCancelBy(String cancelBy) {
-        this.cancelBy = cancelBy;
+    public void setCanceledBy(String canceledBy) {
+        this.canceledBy = canceledBy;
     }
 }

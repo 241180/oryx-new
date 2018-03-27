@@ -1,8 +1,8 @@
 package com.oryx.model.system.ref;
 
-import com.oryx.domain.EnumCivility;
-import com.oryx.domain.EnumGender;
-import com.oryx.domain.EnumLanguage;
+import com.oryx.domain.IEnumCivility;
+import com.oryx.domain.IEnumGender;
+import com.oryx.domain.IEnumLanguage;
 import com.oryx.model.*;
 import com.oryx.model.basic.ITracableCancelableEntity;
 import org.hibernate.annotations.ForeignKey;
@@ -43,15 +43,15 @@ public class Person extends ITracableCancelableEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_CIVILITY, length = SchemaConstantSize.CODE, nullable = false)
-    private EnumCivility civility;
+    private IEnumCivility.Types civility;
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_GENDER, length = SchemaConstantSize.CODE, nullable = false)
-    private EnumGender gender;
+    private IEnumGender.Types gender;
 
     @Enumerated(EnumType.STRING)
     @Column(name = ComSchemaColumnConstantName.T_LANG_CODE, length = ComSchemaConstantSize.LANG_CODE)
-    private EnumLanguage language;
+    private IEnumLanguage.Types language;
 
     @Column(name = SchemaColumnConstantName.T_BIRTH_DATE, nullable = false)
     @Temporal(TemporalType.DATE)
@@ -109,7 +109,7 @@ public class Person extends ITracableCancelableEntity {
         this.lastName = lastName;
     }
 
-    public Person(String defaultUid, String firstName, String lastName, String defaultPhoneNumber, EnumCivility civility, EnumGender gender, EnumLanguage language, Date birthDate, State birthPlace, UUID birthPlaceId, Set<Uid> uidSet, List<UUID> uidIds, Set<Adress> adressSet, List<UUID> adressIds, Set<Contact> contactSet, List<UUID> contactIds) {
+    public Person(String defaultUid, String firstName, String lastName, String defaultPhoneNumber, IEnumCivility.Types civility, IEnumGender.Types gender, IEnumLanguage.Types language, Date birthDate, State birthPlace, UUID birthPlaceId, Set<Uid> uidSet, List<UUID> uidIds, Set<Adress> adressSet, List<UUID> adressIds, Set<Contact> contactSet, List<UUID> contactIds) {
         this.defaultUid = defaultUid;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -154,19 +154,19 @@ public class Person extends ITracableCancelableEntity {
         this.lastName = lastName;
     }
 
-    public EnumCivility getCivility() {
+    public IEnumCivility.Types getCivility() {
         return civility;
     }
 
-    public void setCivility(EnumCivility civility) {
+    public void setCivility(IEnumCivility.Types civility) {
         this.civility = civility;
     }
 
-    public EnumGender getGender() {
+    public IEnumGender.Types getGender() {
         return gender;
     }
 
-    public void setGender(EnumGender gender) {
+    public void setGender(IEnumGender.Types gender) {
         this.gender = gender;
     }
 
@@ -258,11 +258,11 @@ public class Person extends ITracableCancelableEntity {
         this.birthPlace = birthPlace;
     }
 
-    public EnumLanguage getLanguage() {
+    public IEnumLanguage.Types getLanguage() {
         return language;
     }
 
-    public void setLanguage(EnumLanguage language) {
+    public void setLanguage(IEnumLanguage.Types language) {
         this.language = language;
     }
 }
