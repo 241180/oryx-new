@@ -19,6 +19,7 @@
                         </a>
                     </li>
                     <li ng-class="{'gray': activeURL == 'contacts', '': activeURL != 'contacts'}"><a title='<spring:message code="header.contacts"/>' href="<c:url value='/protected/contacts'/>"><p><spring:message code="header.contacts"/></p></a></li>
+                    <li ng-class="{'gray': activeURL == 'users', '': activeURL != 'users'}"><a title='<spring:message code="header.users"/>' href="<c:url value='/protected/users'/>"><p><spring:message code="header.users"/></p></a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li><a href="<c:url value='/logout' />" title='<spring:message code="header.logout"/>'><p class="displayInLine"><spring:message code="header.logout"/>&nbsp;(${user.name})</p></a></li>

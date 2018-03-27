@@ -25,7 +25,7 @@ import java.util.UUID;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XmlSysUser", namespace = "http://model.ref.ws.oryx.com")
 @Entity
-@EntityListeners(UserListener.class)
+//@EntityListeners(UserListener.class)
 @Table(
         name = SchemaTableConstantName.T_USER
         , uniqueConstraints = {@UniqueConstraint(name = "UC_USER_CODE", columnNames = {SchemaColumnConstantName.T_CODE}),

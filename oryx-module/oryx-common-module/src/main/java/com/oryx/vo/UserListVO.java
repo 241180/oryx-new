@@ -1,6 +1,6 @@
 package com.oryx.vo;
 
-import com.oryx.model.IUser;
+import com.oryx.model.system.ose.User;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ public class UserListVO {
     private String actionMessage;
     private String searchMessage;
 
-    private List<IUser> users;
+    private List<User> users;
 
     public UserListVO() {
     }
 
-    public UserListVO(int pages, long totalUsers, List<IUser> users) {
+    public UserListVO(int pages, long totalUsers, List<User> users) {
         this.pagesCount = pages;
         this.users = users;
         this.totalUsers = totalUsers;
@@ -30,11 +30,11 @@ public class UserListVO {
         this.pagesCount = pagesCount;
     }
 
-    public List<IUser> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<IUser> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 

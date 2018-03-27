@@ -1,6 +1,6 @@
 package com.oryx.vo;
 
-import com.oryx.model.IContact;
+import com.oryx.model.system.ref.Contact;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ public class ContactListVO {
     private String actionMessage;
     private String searchMessage;
 
-    private List<IContact> contacts;
+    private List<Contact> contacts;
 
     public ContactListVO() {
     }
 
-    public ContactListVO(int pages, long totalContacts, List<IContact> contacts) {
+    public ContactListVO(int pages, long totalContacts, List<Contact> contacts) {
         this.pagesCount = pages;
         this.contacts = contacts;
         this.totalContacts = totalContacts;
@@ -30,11 +30,11 @@ public class ContactListVO {
         this.pagesCount = pagesCount;
     }
 
-    public List<IContact> getContacts() {
+    public List<Contact> getContacts() {
         return contacts;
     }
 
-    public void setContacts(List<IContact> contacts) {
+    public void setContacts(List<Contact> contacts) {
         this.contacts = contacts;
     }
 
