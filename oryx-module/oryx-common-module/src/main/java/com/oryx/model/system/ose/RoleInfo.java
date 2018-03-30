@@ -27,7 +27,7 @@ public class RoleInfo extends ITracableCancelableEntity {
     private String name;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION)
-    private String descriptionTextArea;
+    private String description;
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_STATUS, length = SchemaConstantSize.CODE, nullable = false)
@@ -99,10 +99,10 @@ public class RoleInfo extends ITracableCancelableEntity {
     }
 
     public String getDescription() {
-        return descriptionTextArea;
+        return description;
     }
 
     public void setDescription(String description) {
-        this.descriptionTextArea = description;
+        this.description = description;
     }
 }

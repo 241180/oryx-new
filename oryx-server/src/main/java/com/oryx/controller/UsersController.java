@@ -75,7 +75,7 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE, produces = "application/json")
-    public ResponseEntity<?> delete(@PathVariable("userId") int userId,
+    public ResponseEntity<?> delete(@PathVariable("userId") UUID userId,
                                     @RequestParam(required = false) String searchFor,
                                     @RequestParam(required = false, defaultValue = DEFAULT_PAGE_DISPLAYED_TO_USER) int page,
                                     Locale locale) {

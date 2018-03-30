@@ -10,6 +10,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.UUID;
+
 @Service
 @Transactional
 public class ContactService {
@@ -33,7 +35,7 @@ public class ContactService {
         contactRepository.save(contact);
     }
 
-    public void delete(int contactId) {
+    public void delete(UUID contactId) {
         contactRepository.deleteById(contactId);
     }
 

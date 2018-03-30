@@ -2,6 +2,7 @@ package com.oryx.controller;
 
 import com.oryx.model.system.ref.Contact;
 import com.oryx.service.ContactService;
+import com.oryx.service.ProductService;
 import com.oryx.vo.ContactListVO;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +76,7 @@ public class ContactsController {
     }
 
     @RequestMapping(value = "/{contactId}", method = RequestMethod.DELETE, produces = "application/json")
-    public ResponseEntity<?> delete(@PathVariable("contactId") int contactId,
+    public ResponseEntity<?> delete(@PathVariable("contactId") UUID contactId,
                                     @RequestParam(required = false) String searchFor,
                                     @RequestParam(required = false, defaultValue = DEFAULT_PAGE_DISPLAYED_TO_USER) int page,
                                     Locale locale) {

@@ -150,7 +150,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="productCode" type="xs:string"/>
           <xs:element minOccurs="0" name="productName" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="category" type="model:XmlProductCategory"/>
           <xs:element minOccurs="0" name="categoryId" type="xs:string"/>
           <xs:element minOccurs="0" name="brand" type="model:XmlBrand"/>
@@ -169,7 +169,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="categoryCode" type="xs:string"/>
           <xs:element minOccurs="0" name="categoryName" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -184,7 +184,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="brandCode" type="xs:string"/>
           <xs:element minOccurs="0" name="brandName" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -453,7 +453,7 @@
       <xs:extension base="model:XmlTracableCancelableEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="status" type="domain:XmlEnumStatus"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" name="menuSet" nillable="true" type="model:XmlMenu"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" name="menuIds" nillable="true" type="xs:string"/>
@@ -470,7 +470,7 @@
       <xs:extension base="model:XmlTracableCancelableEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="status" type="domain:XmlEnumStatus"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" name="taskSet" nillable="true" type="model:XmlTask"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" name="taskIds" nillable="true" type="xs:string"/>
@@ -488,7 +488,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="name" type="xs:string"/>
           <xs:element minOccurs="0" name="permission" type="domain:XmlEnumPermission"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="status" type="domain:XmlEnumStatus"/>
           <xs:element minOccurs="0" name="menuPath" type="xs:string"/>
         </xs:sequence>
@@ -505,7 +505,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="lotCode" type="xs:string"/>
           <xs:element minOccurs="0" name="lotName" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="product" type="model:XmlProduct"/>
           <xs:element minOccurs="0" name="productId" type="xs:string"/>
           <xs:element minOccurs="0" name="quantity" type="xs:double"/>
@@ -573,7 +573,7 @@
           <xs:element minOccurs="0" name="tableCode" type="xs:string"/>
           <xs:element minOccurs="0" name="langage" type="domain:XmlEnumLanguage"/>
           <xs:element minOccurs="0" name="value" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="reference" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
@@ -605,7 +605,7 @@
       <xs:extension base="model:XmlTracableCancelableEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="domainCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="reference" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
@@ -621,7 +621,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="processCode" type="xs:string"/>
           <xs:element minOccurs="0" name="fieldCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="processRef" type="xs:string"/>
           <xs:element minOccurs="0" name="processType" type="xs:string"/>
           <xs:element minOccurs="0" name="processResult" type="xs:string"/>
@@ -638,7 +638,7 @@
       <xs:extension base="model:XmlTracableCancelableEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="value" type="xs:string"/>
           <xs:element minOccurs="0" name="reference" type="xs:string"/>
         </xs:sequence>
@@ -655,7 +655,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="upgradeCode" type="xs:string"/>
           <xs:element minOccurs="0" name="softwareVersion" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -670,7 +670,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="name" type="xs:string"/>
           <xs:element minOccurs="0" name="reference" type="xs:string"/>
-          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="language" type="domain:XmlEnumLanguage"/>
           <xs:element minOccurs="0" name="defaultPhoneNumber" type="xs:string"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" name="adressSet" nillable="true" type="model:XmlAdress"/>

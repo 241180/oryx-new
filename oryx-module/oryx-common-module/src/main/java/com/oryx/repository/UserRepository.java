@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface UserRepository extends PagingAndSortingRepository<User, Integer> {
+import java.util.UUID;
+
+public interface UserRepository extends PagingAndSortingRepository<User, UUID> {
     Page<User> findByEmail(Pageable pageable, String email);
 }

@@ -32,7 +32,7 @@ public class Task extends ITracableCancelableEntity {
     private IEnumPermission.Types permission;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION)
-    private String descriptionTextArea;
+    private String description;
 
     @Enumerated(EnumType.STRING)
     @Column(name = SchemaColumnConstantName.T_STATUS, length = SchemaConstantSize.CODE, nullable = false)
@@ -68,11 +68,11 @@ public class Task extends ITracableCancelableEntity {
     }
 
     public String getDescription() {
-        return descriptionTextArea;
+        return description;
     }
 
     public void setDescription(String description) {
-        this.descriptionTextArea = description;
+        this.description = description;
     }
 
     public IEnumPermission.Types getPermission() {
@@ -81,14 +81,6 @@ public class Task extends ITracableCancelableEntity {
 
     public void setPermission(IEnumPermission.Types permission) {
         this.permission = permission;
-    }
-
-    public String getDescriptionTextArea() {
-        return descriptionTextArea;
-    }
-
-    public void setDescriptionTextArea(String descriptionTextArea) {
-        this.descriptionTextArea = descriptionTextArea;
     }
 
     public String getMenuPath() {

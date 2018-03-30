@@ -35,7 +35,7 @@ public class Product extends ITracableCancelableEntity {
     private String productName;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION/*, nullable = false*/)
-    private String descriptionTextArea;
+    private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = SchemaColumnConstantName.T_CATEGORY_ID)
@@ -59,5 +59,61 @@ public class Product extends ITracableCancelableEntity {
     @Override
     public Object newXmlInstance() {
         return new Product();
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ProductCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(ProductCategory category) {
+        this.category = category;
+    }
+
+    public UUID getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(UUID categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public UUID getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(UUID brandId) {
+        this.brandId = brandId;
     }
 }

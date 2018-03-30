@@ -34,7 +34,7 @@ public class ProductCategory extends ITracableCancelableEntity {
     private String categoryName;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION/*, nullable = false*/)
-    private String descriptionTextArea;
+    private String description;
 
     @Override
     public Object newInstance() {

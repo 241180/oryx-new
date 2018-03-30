@@ -31,7 +31,7 @@ public class Domain extends ITracableCancelableEntity {
     private String domainCode;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION)
-    private String descriptionTextArea;
+    private String description;
 
     @Column(name = SchemaColumnConstantName.T_DOMAIN_REFERENCE, length = SchemaConstantSize.S_VALUE)
     private String reference;
@@ -55,11 +55,11 @@ public class Domain extends ITracableCancelableEntity {
     }
 
     public String getDescription() {
-        return descriptionTextArea;
+        return description;
     }
 
     public void setDescription(String description) {
-        this.descriptionTextArea = description;
+        this.description = description;
     }
 
     public String getDomainCode() {

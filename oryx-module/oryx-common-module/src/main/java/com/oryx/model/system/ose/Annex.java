@@ -37,7 +37,7 @@ public class Annex extends ITracableCancelableEntity {
     private String value;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION)
-    private String descriptionTextArea;
+    private String description;
 
     @Column(name = SchemaColumnConstantName.T_ANNEX_REFERENCE, length = SchemaConstantSize.S_VALUE)
     private String reference;
@@ -84,11 +84,11 @@ public class Annex extends ITracableCancelableEntity {
         this.reference = reference;
     }
 
-    public String getDescriptionTextArea() {
-        return descriptionTextArea;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptionTextArea(String descriptionTextArea) {
-        this.descriptionTextArea = descriptionTextArea;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

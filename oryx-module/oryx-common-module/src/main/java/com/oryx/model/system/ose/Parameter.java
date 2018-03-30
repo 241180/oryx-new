@@ -31,7 +31,7 @@ public class Parameter extends ITracableCancelableEntity {
     private String name;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION)
-    private String descriptionTextArea;
+    private String description;
 
     @Column(name = SchemaColumnConstantName.T_PARAMETER_VALUE, length = SchemaConstantSize.S_VALUE, nullable = false)
     private String value;
@@ -57,12 +57,12 @@ public class Parameter extends ITracableCancelableEntity {
         this.name = name;
     }
 
-    public String getDescriptionTextArea() {
-        return descriptionTextArea;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptionTextArea(String descriptionTextArea) {
-        this.descriptionTextArea = descriptionTextArea;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getValue() {

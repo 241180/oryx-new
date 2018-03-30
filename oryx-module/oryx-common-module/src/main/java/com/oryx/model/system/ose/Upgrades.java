@@ -33,7 +33,7 @@ public class Upgrades extends ITracableEntity {
     private String softwareVersion;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION)
-    private String descriptionTextArea;
+    private String description;
 
     @Override
     public Object newInstance() {
@@ -45,12 +45,12 @@ public class Upgrades extends ITracableEntity {
         return new Upgrades();
     }
 
-    public String getDescriptionTextArea() {
-        return descriptionTextArea;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptionTextArea(String descriptionTextArea) {
-        this.descriptionTextArea = descriptionTextArea;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getSoftwareVersion() {

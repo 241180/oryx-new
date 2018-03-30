@@ -37,7 +37,7 @@ public class ThirdParty extends ITracableCancelableEntity {
     private String reference;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = ComSchemaConstantSize.M_DESCRIPTION, nullable = false)
-    private String descriptionTextArea;
+    private String description;
 
     @Enumerated(EnumType.STRING)
     @Column(name = ComSchemaColumnConstantName.T_LANG_CODE, length = ComSchemaConstantSize.LANG_CODE)
@@ -100,12 +100,12 @@ public class ThirdParty extends ITracableCancelableEntity {
         this.reference = reference;
     }
 
-    public String getDescriptionTextArea() {
-        return descriptionTextArea;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptionTextArea(String descriptionTextArea) {
-        this.descriptionTextArea = descriptionTextArea;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public IEnumLanguage.Types getLanguage() {

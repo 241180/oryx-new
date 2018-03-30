@@ -36,7 +36,7 @@ public class ProductLot extends ITracableCancelableEntity {
     private String lotName;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION/*, nullable = false*/)
-    private String descriptionTextArea;
+    private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = SchemaColumnConstantName.T_PRODUCT_ID)
