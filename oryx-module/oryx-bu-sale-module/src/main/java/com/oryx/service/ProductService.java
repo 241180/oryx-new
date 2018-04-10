@@ -19,7 +19,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     @Transactional(readOnly = true)
-    public List<Product> findByCode(String code) {
+    public Product findByCode(String code) {
        return productRepository.findByProductCode(code);
     }
 }
