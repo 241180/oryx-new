@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlEnumAnnex")
+@XmlType(name = "EnumAnnex")
 public class XmlEnumAnnex {
 
 

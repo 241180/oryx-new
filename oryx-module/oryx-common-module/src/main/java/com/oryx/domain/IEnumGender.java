@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 
 public interface IEnumGender {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlEnumGender", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "EnumGenderVO", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("Male")

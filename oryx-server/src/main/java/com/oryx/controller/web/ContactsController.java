@@ -1,8 +1,9 @@
-package com.oryx.controller;
+package com.oryx.controller.web;
 
-import com.oryx.model.system.ose.User;
-import com.oryx.service.UserService;
-import com.oryx.vo.UserListVO;
+import com.oryx.model.system.ref.Contact;
+import com.oryx.service.ContactService;
+import com.oryx.service.ProductService;
+import com.oryx.vo.ContactListVO;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,13 +18,13 @@ import java.util.Locale;
 import java.util.UUID;
 
 @Controller
-@RequestMapping(value = "/protected/users")
-public class UsersController {
+@RequestMapping(value = "/protected/contacts")
+public class ContactsController {
 
     private static final String DEFAULT_PAGE_DISPLAYED_TO_USER = "0";
 
     @Autowired
-    private UserService userService;
+    private ContactService contactService;
 
     @Autowired
     private MessageSource messageSource;
@@ -33,7 +34,7 @@ public class UsersController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView welcome() {
-        return new ModelAndView("usersList");
+        return new ModelAndView("contactsList");
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
@@ -42,11 +43,11 @@ public class UsersController {
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> create(@ModelAttribute("user") User user,
+    public ResponseEntity<?> create(@ModelAttribute("contact") Contact contact,
                                     @RequestParam(required = false) String searchFor,
                                     @RequestParam(required = false, defaultValue = DEFAULT_PAGE_DISPLAYED_TO_USER) int page,
                                     Locale locale) {
-        userService.save(user);
+        contactService.save(contact);
 
         if (isSearchActivated(searchFor)) {
             return search(searchFor, page, locale, "message.create.success");
@@ -56,16 +57,16 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = "application/json")
-    public ResponseEntity<?> update(@PathVariable("id") UUID userId,
-                                    @RequestBody User user,
+    public ResponseEntity<?> update(@PathVariable("id") UUID contactId,
+                                    @RequestBody Contact contact,
                                     @RequestParam(required = false) String searchFor,
                                     @RequestParam(required = false, defaultValue = DEFAULT_PAGE_DISPLAYED_TO_USER) int page,
                                     Locale locale) {
-        if (!userId.equals(user.getId())) {
+        if (!contactId.equals(contact.getId())) {
             return new ResponseEntity<String>("Bad Request", HttpStatus.BAD_REQUEST);
         }
 
-        userService.save(user);
+        contactService.save(contact);
 
         if (isSearchActivated(searchFor)) {
             return search(searchFor, page, locale, "message.update.success");
@@ -74,13 +75,13 @@ public class UsersController {
         return createListAllResponse(page, locale, "message.update.success");
     }
 
-    @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE, produces = "application/json")
-    public ResponseEntity<?> delete(@PathVariable("userId") UUID userId,
+    @RequestMapping(value = "/{contactId}", method = RequestMethod.DELETE, produces = "application/json")
+    public ResponseEntity<?> delete(@PathVariable("contactId") UUID contactId,
                                     @RequestParam(required = false) String searchFor,
                                     @RequestParam(required = false, defaultValue = DEFAULT_PAGE_DISPLAYED_TO_USER) int page,
                                     Locale locale) {
 
-        userService.delete(userId);
+        contactService.delete(contactId);
 
         if (isSearchActivated(searchFor)) {
             return search(searchFor, page, locale, "message.delete.success");
@@ -97,25 +98,25 @@ public class UsersController {
     }
 
     private ResponseEntity<?> search(String name, int page, Locale locale, String actionMessageKey) {
-        UserListVO userListVO = userService.findByEmail(page, maxResults, name);
+        ContactListVO contactListVO = contactService.findByContactType(page, maxResults, name);
 
         if (!StringUtils.isEmpty(actionMessageKey)) {
-            addActionMessageToVO(userListVO, locale, actionMessageKey, null);
+            addActionMessageToVO(contactListVO, locale, actionMessageKey, null);
         }
 
         Object[] args = {name};
 
-        addSearchMessageToVO(userListVO, locale, "message.search.for.active", args);
+        addSearchMessageToVO(contactListVO, locale, "message.search.for.active", args);
 
-        return new ResponseEntity<UserListVO>(userListVO, HttpStatus.OK);
+        return new ResponseEntity<ContactListVO>(contactListVO, HttpStatus.OK);
     }
 
-    private UserListVO listAll(int page) {
-        return userService.findAll(page, maxResults);
+    private ContactListVO listAll(int page) {
+        return contactService.findAll(page, maxResults);
     }
 
-    private ResponseEntity<UserListVO> returnListToUser(UserListVO userList) {
-        return new ResponseEntity<UserListVO>(userList, HttpStatus.OK);
+    private ResponseEntity<ContactListVO> returnListToUser(ContactListVO contactList) {
+        return new ResponseEntity<ContactListVO>(contactList, HttpStatus.OK);
     }
 
     private ResponseEntity<?> createListAllResponse(int page, Locale locale) {
@@ -123,31 +124,31 @@ public class UsersController {
     }
 
     private ResponseEntity<?> createListAllResponse(int page, Locale locale, String messageKey) {
-        UserListVO userListVO = listAll(page);
+        ContactListVO contactListVO = listAll(page);
 
-        addActionMessageToVO(userListVO, locale, messageKey, null);
+        addActionMessageToVO(contactListVO, locale, messageKey, null);
 
-        return returnListToUser(userListVO);
+        return returnListToUser(contactListVO);
     }
 
-    private UserListVO addActionMessageToVO(UserListVO userListVO, Locale locale, String actionMessageKey, Object[] args) {
+    private ContactListVO addActionMessageToVO(ContactListVO contactListVO, Locale locale, String actionMessageKey, Object[] args) {
         if (StringUtils.isEmpty(actionMessageKey)) {
-            return userListVO;
+            return contactListVO;
         }
 
-        userListVO.setActionMessage(messageSource.getMessage(actionMessageKey, args, null, locale));
+        contactListVO.setActionMessage(messageSource.getMessage(actionMessageKey, args, null, locale));
 
-        return userListVO;
+        return contactListVO;
     }
 
-    private UserListVO addSearchMessageToVO(UserListVO userListVO, Locale locale, String actionMessageKey, Object[] args) {
+    private ContactListVO addSearchMessageToVO(ContactListVO contactListVO, Locale locale, String actionMessageKey, Object[] args) {
         if (StringUtils.isEmpty(actionMessageKey)) {
-            return userListVO;
+            return contactListVO;
         }
 
-        userListVO.setSearchMessage(messageSource.getMessage(actionMessageKey, args, null, locale));
+        contactListVO.setSearchMessage(messageSource.getMessage(actionMessageKey, args, null, locale));
 
-        return userListVO;
+        return contactListVO;
     }
 
     private boolean isSearchActivated(String searchFor) {

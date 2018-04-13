@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlDomain", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "DomainVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_DOMAIN

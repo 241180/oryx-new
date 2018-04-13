@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 
 public interface IEnumPermission {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlEnumPermission", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "EnumPermissionVO", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("Full")

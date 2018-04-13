@@ -16,7 +16,7 @@ import java.util.Set;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlRoleInfo", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "RoleInfoVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_ROLE_INFO

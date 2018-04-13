@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlAnnex", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "AnnexVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_ANNEX

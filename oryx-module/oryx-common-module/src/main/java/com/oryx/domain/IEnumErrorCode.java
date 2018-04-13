@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 
 public interface IEnumErrorCode {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlEnumErrorCode", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "EnumErrorCodeVO", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("ObjectNotfound")

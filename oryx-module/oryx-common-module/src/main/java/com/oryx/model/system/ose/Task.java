@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlTask", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "TaskVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_TASK

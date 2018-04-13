@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlUser", propOrder = {
+@XmlType(name = "User", propOrder = {
         "email",
         "name",
         "enabled",

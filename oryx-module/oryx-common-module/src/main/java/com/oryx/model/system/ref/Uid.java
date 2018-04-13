@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlUid", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "UidVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_PERSON_UID

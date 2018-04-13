@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 
 public interface IEnumContact {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlEnumContact", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "EnumContactVO", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("Mobile")

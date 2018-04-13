@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlUpgrades", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "UpgradesVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_UPGRADES

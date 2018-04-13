@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlFieldProcessParam", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "FieldProcessParamVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_FIELD_PROCESS_PARAM

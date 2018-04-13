@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 
 public interface IEnumUserRole {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlEnumUserRole", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "EnumUserRoleVO", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("Administrator")

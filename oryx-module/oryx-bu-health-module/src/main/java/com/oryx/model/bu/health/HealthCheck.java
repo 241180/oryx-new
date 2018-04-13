@@ -16,7 +16,7 @@ import java.util.Date;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlHealthCheck", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "HealthCheckVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_HEALTH_CHECK

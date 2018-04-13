@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 
 public interface IEnumUID {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlEnumUID", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "EnumUIDVO", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("NationalIdentificationCard")

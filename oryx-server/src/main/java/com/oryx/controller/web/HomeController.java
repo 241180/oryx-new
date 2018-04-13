@@ -1,4 +1,4 @@
-package com.oryx.controller;
+package com.oryx.controller.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

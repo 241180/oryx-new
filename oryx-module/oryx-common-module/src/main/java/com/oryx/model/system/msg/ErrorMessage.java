@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlErrorMessage", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "ErrorMessageVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_ERROR_MESSAGE
