@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType>
  * </pre>
  */
-@XmlType(name = "XmlRole", namespace = "http://domain.ref.ws.oryx.com")
+@XmlType(name = "RoleVO", namespace = "http://domain.ref.ws.oryx.com")
 @XmlEnum
 public enum XmlRole {
 

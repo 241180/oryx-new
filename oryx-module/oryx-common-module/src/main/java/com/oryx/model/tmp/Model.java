@@ -8,7 +8,7 @@ import com.oryx.model.basic.ITracableCancelableEntity;
  */
 
 //@XmlAccessorType(XmlAccessType.FIELD)
-//@XmlType(name = "XmlModel", namespace = "http://model.element.webservice.remote.oryx.com")
+//@XmlType(name = "ModelVO", namespace = "http://model.element.webservice.remote.oryx.com")
 //AFTER TWO COMPILE : uncomment the line bellow
 //@GenTypeByTokenProvider(extendType = "com.oryx.core.provider.TypeByTokenProvider")
 //@GenServiceDelegate

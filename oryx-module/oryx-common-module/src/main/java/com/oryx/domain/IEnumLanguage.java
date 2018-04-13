@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 
 public interface IEnumLanguage {
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "XmlEnumLanguage", namespace = "http://domain.ref.ws.oryx.com")
+    @XmlType(name = "EnumLanguageVO", namespace = "http://domain.ref.ws.oryx.com")
     @XmlEnum
     public enum Types {
         @XmlEnumValue("FRA")

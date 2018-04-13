@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlState", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "StateVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_STATE

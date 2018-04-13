@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlParameter", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "ParameterVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_PARAMETER

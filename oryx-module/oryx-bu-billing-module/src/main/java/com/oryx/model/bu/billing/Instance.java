@@ -15,7 +15,7 @@ import java.util.Date;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlInstance", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "InstanceVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_INSTANCE

@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlStockPosition", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "StockPositionVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_STOCK_POSITION

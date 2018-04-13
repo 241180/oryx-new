@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlProductCategory", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "ProductCategoryVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_PRODUCT_CATEGORY

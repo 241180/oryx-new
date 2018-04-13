@@ -14,7 +14,7 @@ import java.util.Date;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlAccount", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "AccountVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_ACCOUNT

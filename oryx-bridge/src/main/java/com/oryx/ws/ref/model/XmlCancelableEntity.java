@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlCancelableEntity", propOrder = {
+@XmlType(name = "CancelableEntity", propOrder = {
         "id",
         "version"
 })

@@ -18,7 +18,7 @@ import java.util.UUID;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlBillItem", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "BillItemVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_BILL_ITEM

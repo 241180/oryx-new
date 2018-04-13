@@ -23,7 +23,7 @@ import java.util.UUID;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlSysUser", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "SysUserVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 //@EntityListeners(UserListener.class)
 @Table(

@@ -1,512 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:domain="http://domain.ref.ws.oryx.com" xmlns:model="http://model.ref.ws.oryx.com" targetNamespace="http://model.ref.ws.oryx.com" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:model="http://model.ref.ws.oryx.com" targetNamespace="http://model.ref.ws.oryx.com" version="1.0">
 
-  <xs:import namespace="http://domain.ref.ws.oryx.com" schemaLocation="domain.xsd"/>
-
-  <xs:complexType name="XmlContact">
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
-          <xs:element minOccurs="0" name="email" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlTracableCancelableEntity">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by smbarki on 22/03/2018.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="cancelBy" type="xs:string"/>
-          <xs:element minOccurs="0" name="cancelDate" type="xs:dateTime"/>
-          <xs:element name="checkCancel" type="xs:boolean"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlTracableEntity">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by smbarki on 22/03/2018.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
-          <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="updatedBy" type="xs:string"/>
-          <xs:element minOccurs="0" name="updatedDate" type="xs:dateTime"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlEntity">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by smbarki on 22/03/2018.]]></xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:string"/>
-      <xs:element minOccurs="0" name="version" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="XmlUser">
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="email" type="xs:string"/>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="enabled" type="xs:string"/>
-          <xs:element minOccurs="0" name="password" type="xs:string"/>
-          <xs:element minOccurs="0" name="role" type="domain:XmlRole"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlCancelableEntity">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by smbarki on 22/03/2018.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="cancelBy" type="xs:string"/>
-          <xs:element minOccurs="0" name="cancelDate" type="xs:dateTime"/>
-          <xs:element name="checkCancel" type="xs:boolean"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlAccount">
+  <xs:complexType name="ProductLotVO">
     <xs:annotation>
       <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="accountCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="activationDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="deactivationDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="ammount" type="xs:double"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlBill">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="billCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="status" type="domain:XmlEnumBillStatus"/>
-          <xs:element minOccurs="0" name="calculationDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="issueDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="dueDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="settlementDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="grossAmmount" type="xs:double"/>
-          <xs:element minOccurs="0" name="tax" type="xs:double"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="billItemSet" nillable="true" type="model:XmlBillItem"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="billItemIds" nillable="true" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlBillItem">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="product" type="model:XmlProduct"/>
-          <xs:element minOccurs="0" name="productId" type="xs:string"/>
-          <xs:element minOccurs="0" name="quantity" type="xs:double"/>
-          <xs:element minOccurs="0" name="unitPrice" type="xs:double"/>
-          <xs:element minOccurs="0" name="discount" type="xs:double"/>
-          <xs:element minOccurs="0" name="tax" type="xs:double"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlProduct">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="productCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="productName" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="category" type="model:XmlProductCategory"/>
-          <xs:element minOccurs="0" name="categoryId" type="xs:string"/>
-          <xs:element minOccurs="0" name="brand" type="model:XmlBrand"/>
-          <xs:element minOccurs="0" name="brandId" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlProductCategory">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="categoryCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="categoryName" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlBrand">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="brandCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="brandName" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlInstance">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="instanceDateTime" type="xs:dateTime"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlHealthCheck">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="healthCheckDateTime" type="xs:dateTime"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlPatient">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="patientCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="email" type="xs:string"/>
-          <xs:element minOccurs="0" name="person" type="model:XmlPerson"/>
-          <xs:element minOccurs="0" name="personId" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlPerson">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="defaultUid" type="xs:string"/>
-          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
-          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
-          <xs:element minOccurs="0" name="defaultPhoneNumber" type="xs:string"/>
-          <xs:element minOccurs="0" name="civility" type="domain:XmlEnumCivility"/>
-          <xs:element minOccurs="0" name="gender" type="domain:XmlEnumGender"/>
-          <xs:element minOccurs="0" name="language" type="domain:XmlEnumLanguage"/>
-          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="birthPlace" type="model:XmlState"/>
-          <xs:element minOccurs="0" name="birthPlaceId" type="xs:string"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="uidSet" nillable="true" type="model:XmlUid"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="uidIds" nillable="true" type="xs:string"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="adressSet" nillable="true" type="model:XmlAdress"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="adressIds" nillable="true" type="xs:string"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="contactSet" nillable="true" type="model:XmlSysContact"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="contactIds" nillable="true" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlState">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="countryName" type="xs:string"/>
-          <xs:element minOccurs="0" name="country" type="model:XmlCountry"/>
-          <xs:element minOccurs="0" name="countryId" type="xs:string"/>
-          <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="latitude" type="xs:double"/>
-          <xs:element minOccurs="0" name="longitude" type="xs:double"/>
-          <xs:element minOccurs="0" name="altitude" type="xs:double"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlCountry">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="language" type="xs:string"/>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="polCapital" type="model:XmlState"/>
-          <xs:element minOccurs="0" name="polCapitalId" type="xs:string"/>
-          <xs:element minOccurs="0" name="ecoCapital" type="model:XmlState"/>
-          <xs:element minOccurs="0" name="ecoCapitalId" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlUid">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="uidType" type="domain:XmlEnumUID"/>
-          <xs:element minOccurs="0" name="uid" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlAdress">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="country" type="model:XmlCountry"/>
-          <xs:element minOccurs="0" name="countryId" type="xs:string"/>
-          <xs:element minOccurs="0" name="state" type="model:XmlState"/>
-          <xs:element minOccurs="0" name="stateId" type="xs:string"/>
-          <xs:element minOccurs="0" name="street" type="xs:string"/>
-          <xs:element name="latitude" type="xs:double"/>
-          <xs:element name="longitude" type="xs:double"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlSysContact">
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="contactType" type="domain:XmlEnumContact"/>
-          <xs:element minOccurs="0" name="value" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlRdv">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="rdvDateTime" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="duration" type="xs:int"/>
-          <xs:element minOccurs="0" name="status" type="domain:XmlEnumRdvStatus"/>
-          <xs:element minOccurs="0" name="reason" type="xs:string"/>
-          <xs:element minOccurs="0" name="host" type="model:XmlPerson"/>
-          <xs:element minOccurs="0" name="hostId" type="xs:string"/>
-          <xs:element minOccurs="0" name="guest" type="model:XmlPerson"/>
-          <xs:element minOccurs="0" name="guestId" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlCart">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="cartCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="status" type="domain:XmlEnumCartStatus"/>
-          <xs:element minOccurs="0" name="expiryDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="settlementDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="grossAmmount" type="xs:double"/>
-          <xs:element minOccurs="0" name="tax" type="xs:double"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="cartItemSet" nillable="true" type="model:XmlCartItem"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="cartItemIds" nillable="true" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlCartItem">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="product" type="model:XmlProduct"/>
-          <xs:element minOccurs="0" name="productId" type="xs:string"/>
-          <xs:element minOccurs="0" name="quantity" type="xs:double"/>
-          <xs:element minOccurs="0" name="unitPrice" type="xs:double"/>
-          <xs:element minOccurs="0" name="discount" type="xs:double"/>
-          <xs:element minOccurs="0" name="tax" type="xs:double"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlShopper">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="shopperCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="email" type="xs:string"/>
-          <xs:element minOccurs="0" name="person" type="model:XmlPerson"/>
-          <xs:element minOccurs="0" name="personId" type="xs:string"/>
-          <xs:element minOccurs="0" name="user" type="model:XmlSysUser"/>
-          <xs:element minOccurs="0" name="userId" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlSysUser">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="userCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="email" type="xs:string"/>
-          <xs:element minOccurs="0" name="userLogin" type="xs:string"/>
-          <xs:element minOccurs="0" name="userPassword" type="xs:string"/>
-          <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="language" type="domain:XmlEnumLanguage"/>
-          <xs:element minOccurs="0" name="lastConnection" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="role" type="domain:XmlEnumUserRole"/>
-          <xs:element minOccurs="0" name="status" type="domain:XmlEnumStatus"/>
-          <xs:element minOccurs="0" name="person" type="model:XmlPerson"/>
-          <xs:element minOccurs="0" name="personId" type="xs:string"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="roleSet" nillable="true" type="model:XmlRoleInfo"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="roleIds" nillable="true" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlRoleInfo">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="status" type="domain:XmlEnumStatus"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="menuSet" nillable="true" type="model:XmlMenu"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="menuIds" nillable="true" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlMenu">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="status" type="domain:XmlEnumStatus"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="taskSet" nillable="true" type="model:XmlTask"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="taskIds" nillable="true" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlTask">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="permission" type="domain:XmlEnumPermission"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="status" type="domain:XmlEnumStatus"/>
-          <xs:element minOccurs="0" name="menuPath" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlProductLot">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
+      <xs:extension base="model:TracableCancelableEntityVO">
         <xs:sequence>
           <xs:element minOccurs="0" name="lotCode" type="xs:string"/>
           <xs:element minOccurs="0" name="lotName" type="xs:string"/>
           <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="product" type="model:XmlProduct"/>
+          <xs:element minOccurs="0" name="product" type="model:ProductVO"/>
           <xs:element minOccurs="0" name="productId" type="xs:string"/>
           <xs:element minOccurs="0" name="quantity" type="xs:double"/>
           <xs:element minOccurs="0" name="stockInDate" type="xs:dateTime"/>
@@ -517,166 +22,88 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="XmlStockPosition">
+  <xs:complexType name="TracableCancelableEntityVO">
+    <xs:complexContent>
+      <xs:extension base="model:CancelableEntityVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+          <xs:element minOccurs="0" name="updateDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="updatedBy" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CancelableEntityVO">
+    <xs:complexContent>
+      <xs:extension base="model:EntityVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cancelDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="canceledBy" type="xs:string"/>
+          <xs:element name="checkCancel" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="EntityVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="version" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProductVO">
+    <xs:complexContent>
+      <xs:extension base="model:TracableCancelableEntityVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="productName" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="category" type="model:ProductCategoryVO"/>
+          <xs:element minOccurs="0" name="categoryId" type="xs:string"/>
+          <xs:element minOccurs="0" name="brand" type="model:BrandVO"/>
+          <xs:element minOccurs="0" name="brandId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ProductCategoryVO">
+    <xs:complexContent>
+      <xs:extension base="model:TracableCancelableEntityVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="categoryName" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BrandVO">
+    <xs:complexContent>
+      <xs:extension base="model:TracableCancelableEntityVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="brandCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="brandName" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="StockPositionVO">
     <xs:annotation>
       <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
+      <xs:extension base="model:TracableCancelableEntityVO">
         <xs:sequence>
-          <xs:element minOccurs="0" name="product" type="model:XmlProduct"/>
+          <xs:element minOccurs="0" name="product" type="model:ProductVO"/>
           <xs:element minOccurs="0" name="productId" type="xs:string"/>
           <xs:element minOccurs="0" name="quantity" type="xs:double"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlErrorMessage">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="messageCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="language" type="domain:XmlEnumLanguage"/>
-          <xs:element minOccurs="0" name="meaning" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlTranslation">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="bundleOrigin" type="xs:string"/>
-          <xs:element minOccurs="0" name="language" type="domain:XmlEnumLanguage"/>
-          <xs:element minOccurs="0" name="text" type="xs:string"/>
-          <xs:element minOccurs="0" name="translation" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlAnnex">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="tableCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="langage" type="domain:XmlEnumLanguage"/>
-          <xs:element minOccurs="0" name="value" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="reference" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlCodification">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="serverCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="internalCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="externalCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
-          <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlDomain">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="domainCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="reference" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlFieldProcessParam">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="processCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="fieldCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="processRef" type="xs:string"/>
-          <xs:element minOccurs="0" name="processType" type="xs:string"/>
-          <xs:element minOccurs="0" name="processResult" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlParameter">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="value" type="xs:string"/>
-          <xs:element minOccurs="0" name="reference" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlUpgrades">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="upgradeCode" type="xs:string"/>
-          <xs:element minOccurs="0" name="softwareVersion" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="XmlThirdParty">
-    <xs:annotation>
-      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="model:XmlTracableCancelableEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="reference" type="xs:string"/>
-          <xs:element minOccurs="0" name="description" type="xs:string"/>
-          <xs:element minOccurs="0" name="language" type="domain:XmlEnumLanguage"/>
-          <xs:element minOccurs="0" name="defaultPhoneNumber" type="xs:string"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="adressSet" nillable="true" type="model:XmlAdress"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="adressIds" nillable="true" type="xs:string"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="contactSet" nillable="true" type="model:XmlSysContact"/>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="contactIds" nillable="true" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

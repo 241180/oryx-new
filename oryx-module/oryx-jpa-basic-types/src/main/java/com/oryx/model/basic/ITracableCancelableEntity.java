@@ -12,7 +12,7 @@ import java.util.Date;
  * Created by smbarki on 22/03/2018.
  */
 
-@XmlType(name = "XmlTracableCancelableEntity", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "TracableCancelableEntityVO", namespace = "http://model.ref.ws.oryx.com")
 @MappedSuperclass
 public class ITracableCancelableEntity extends ICancelableEntity {
     @Column(name = ComSchemaColumnConstantName.T_CREATE_DATE)

@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Created by smbarki on 22/03/2018.
  */
-@XmlType(name = "XmlCancelableEntity", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "CancelableEntityVO", namespace = "http://model.ref.ws.oryx.com")
 @MappedSuperclass
 public class ICancelableEntity extends IEntity {
     @Column(name = ComSchemaColumnConstantName.T_CHECK_CANCEL)

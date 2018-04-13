@@ -27,7 +27,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlTracable", propOrder = {
+@XmlType(name = "Tracable", propOrder = {
         "createdBy",
         "createdDate",
         "updatedBy",

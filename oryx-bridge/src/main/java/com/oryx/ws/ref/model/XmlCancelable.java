@@ -26,7 +26,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlCancelable", propOrder = {
+@XmlType(name = "Cancelable", propOrder = {
         "cancelBy",
         "cancelDate",
         "checkCancel"

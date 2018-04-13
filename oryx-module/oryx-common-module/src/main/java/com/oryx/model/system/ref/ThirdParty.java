@@ -18,7 +18,7 @@ import java.util.UUID;
  * Created by 241180 on 09/01/2017.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlThirdParty", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "ThirdPartyVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @EntityListeners(ThirdPartyListener.class)
 @Table(

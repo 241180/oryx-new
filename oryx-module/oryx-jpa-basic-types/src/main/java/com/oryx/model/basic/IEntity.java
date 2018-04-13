@@ -14,7 +14,7 @@ import java.util.UUID;
  * Created by smbarki on 22/03/2018.
  */
 
-@XmlType(name = "XmlEntity", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "EntityVO", namespace = "http://model.ref.ws.oryx.com")
 @MappedSuperclass
 public class IEntity {
     @Id

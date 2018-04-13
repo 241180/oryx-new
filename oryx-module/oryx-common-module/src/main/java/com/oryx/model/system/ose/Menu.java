@@ -17,7 +17,7 @@ import java.util.Set;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "XmlMenu", namespace = "http://model.ref.ws.oryx.com")
+@XmlType(name = "MenuVO", namespace = "http://model.ref.ws.oryx.com")
 @Entity
 @Table(
         name = SchemaTableConstantName.T_MENU
