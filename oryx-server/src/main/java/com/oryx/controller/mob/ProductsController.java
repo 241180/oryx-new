@@ -2,7 +2,9 @@ package com.oryx.controller.mob;
 
 import com.google.gson.Gson;
 import com.oryx.model.bu.sale.Product;
+import com.oryx.model.system.ose.Codification;
 import com.oryx.model.system.ref.Contact;
+import com.oryx.service.CodificationService;
 import com.oryx.service.ProductService;
 import com.oryx.vo.ContactListVO;
 import com.oryx.ws.ref.model.ProductVO;
@@ -30,44 +32,77 @@ public class ProductsController {
     private ProductService productService;
 
     @Autowired
+    private CodificationService codificationService;
+
+    @Autowired
     private MessageSource messageSource;
 
 
-    @RequestMapping(value = "/getProduct", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> getProduct(@RequestParam(name = "xcode") String xcode, @RequestParam(name = "xformat") String xformat) {
-        Product product = productService.findByCode(xcode);
-        if(product != null) {
-            return new ResponseEntity<Product>(product, HttpStatus.FOUND);
+    @RequestMapping(value = "/fetch", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> fetch(@RequestParam(name = "xcode") String xcode, @RequestParam(name = "xformat") String xformat) {
+        Product productResult = null;
+        if(xcode != null && !xcode.isEmpty() &&xformat!=null && !xformat.isEmpty()) {
+            Codification cod = codificationService.findByServerCodeAndExternalCode(xformat, xcode);
+            if(cod != null) {
+                String code = cod.getInternalCode();
+                productResult = productService.findByCode(code);
+                if (productResult != null) {
+                    productResult.setCode(cod.getExternalCode());
+                    return new ResponseEntity<Product>(productResult, HttpStatus.FOUND);
+                }
+            }
         }
 
-        return new ResponseEntity<Product>(product, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Product>(productResult, HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(value = "/createProduct", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> createProduct(@RequestParam(name = "product") String jsonProduct) {
-        Gson gson = new Gson();
-        Product product = gson.fromJson(jsonProduct, Product.class);
-
-        return new ResponseEntity<Product>(product, HttpStatus.FOUND);
-    }
-
-    @RequestMapping(value = "/updateProduct", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> updateProduct(@RequestParam(name = "xcode") String xcode, @RequestParam(name = "xformat") String xformat) {
-        Product product = productService.findByCode(xcode);
-        if(product != null) {
-            return new ResponseEntity<Product>(product, HttpStatus.FOUND);
+    @RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> create(@RequestParam(name = "xformat") String xformat, @RequestParam(name = "product") String jsonProduct) {
+        Product product = null;
+        if(jsonProduct != null && !jsonProduct.isEmpty() && xformat!=null && !xformat.isEmpty()) {
+            Gson gson = new Gson();
+            product = gson.fromJson(jsonProduct, Product.class);
+            if (product.getCode() != null && !product.getCode().isEmpty()){
+                codificationService.save(xformat, product.getCode(), product.getCode());
+                productService.save(product);
+                return new ResponseEntity<Product>(product, HttpStatus.CREATED);
+            }
         }
 
-        return new ResponseEntity<Product>(product, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Product>(product, HttpStatus.NO_CONTENT);
     }
 
-    @RequestMapping(value = "/deleteProduct", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> deleteProduct(@RequestParam(name = "xcode") String xcode, @RequestParam(name = "xformat") String xformat) {
-        Product product = productService.findByCode(xcode);
-        if(product != null) {
-            return new ResponseEntity<Product>(product, HttpStatus.FOUND);
+    @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> update(@RequestParam(name = "xformat") String xformat, @RequestParam(name = "product") String jsonProduct) {
+        Product product = null;
+        if(jsonProduct != null && !jsonProduct.isEmpty() && xformat!=null && !xformat.isEmpty()) {
+            Gson gson = new Gson();
+            product = gson.fromJson(jsonProduct, Product.class);
+            if (product.getCode() != null && !product.getCode().isEmpty()){
+                Codification cod = codificationService.findByServerCodeAndExternalCode(xformat, product.getCode());
+                if(cod != null) {
+                    product.setCode(cod.getInternalCode());
+                    productService.save(product);
+                    product.setCode(cod.getExternalCode());
+                    return new ResponseEntity<Product>(product, HttpStatus.CREATED);
+                }
+            }
         }
 
+        return new ResponseEntity<Product>(product, HttpStatus.NO_CONTENT);
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> delete(@RequestParam(name = "xformat") String xformat, @RequestParam(name = "xcode") String xcode) {
+        Product product = null;
+        Codification cod = codificationService.findByServerCodeAndExternalCode(xformat, xcode);
+        if(cod != null) {
+            product = productService.findByCode(cod.getInternalCode());
+            if (product != null) {
+                productService.delete(product);
+                return new ResponseEntity<Product>(product, HttpStatus.OK);
+            }
+        }
         return new ResponseEntity<Product>(product, HttpStatus.NOT_FOUND);
     }
 }

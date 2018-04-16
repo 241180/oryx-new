@@ -29,10 +29,10 @@ import java.util.UUID;
 public class Product extends ITracableCancelableEntity {
 
     @Column(name = ComSchemaColumnConstantName.T_CODE, length = ComSchemaConstantSize.CODE, updatable = false/*, nullable = false*/)
-    private String productCode;
+    private String code;
 
     @Column(name = SchemaColumnConstantName.T_NAME, length = SchemaConstantSize.NAME/*, nullable = false*/)
-    private String productName;
+    private String name;
 
     @Column(name = SchemaColumnConstantName.T_DESCRIPTION, length = SchemaConstantSize.M_DESCRIPTION/*, nullable = false*/)
     private String description;
@@ -61,20 +61,14 @@ public class Product extends ITracableCancelableEntity {
         return new Product();
     }
 
-    public String getProductCode() {
-        return productCode;
+
+
+    public String getName() {
+        return name;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -115,5 +109,13 @@ public class Product extends ITracableCancelableEntity {
 
     public void setBrandId(UUID brandId) {
         this.brandId = brandId;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }
