@@ -1,7 +1,6 @@
 package com.oryx.listener.system.ref;
 
 import com.oryx.Crypter;
-import com.oryx.KeyczarFileReader;
 import com.oryx.exceptions.KeyczarException;
 import com.oryx.interfaces.KeyczarReader;
 import com.oryx.model.system.ose.User;
@@ -19,7 +18,7 @@ public class UserListener {
         try {
             KeyczarReader reader = null; //new KeyczarFileReader(IServerParameterNames.ENCRIPTION_DIR);
             Crypter crypter = new Crypter(reader);
-            user.setUserPassword(crypter.encrypt(user.getUserPassword()));
+            user.setPassword(crypter.encrypt(user.getPassword()));
         } catch (KeyczarException e) {
             e.printStackTrace();
         }
@@ -40,7 +39,7 @@ public class UserListener {
         try {
             KeyczarReader reader = null;//new KeyczarFileReader(IServerParameterNames.ENCRIPTION_DIR);
             Crypter crypter = new Crypter(reader);
-            user.setUserPassword(crypter.encrypt(user.getUserPassword()));
+            user.setPassword(crypter.encrypt(user.getPassword()));
         } catch (KeyczarException e) {
             e.printStackTrace();
         }

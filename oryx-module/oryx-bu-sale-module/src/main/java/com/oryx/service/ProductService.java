@@ -23,7 +23,7 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public Product findByCode(String code) {
-       return productRepository.findByProductCode(code);
+       return productRepository.findByCode(code);
     }
 
     @Transactional()

@@ -11,5 +11,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ProductRepository extends PagingAndSortingRepository<Product, UUID> {
-    Product findByProductCode(String productCode);
+    Product findByCode(String code);
 }

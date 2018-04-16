@@ -61,8 +61,6 @@ public class Product extends ITracableCancelableEntity {
         return new Product();
     }
 
-
-
     public String getName() {
         return name;
     }

@@ -3,7 +3,6 @@ package com.oryx.model.system.ose;
 import com.oryx.domain.IEnumLanguage;
 import com.oryx.domain.IEnumStatus;
 import com.oryx.domain.IEnumUserRole;
-import com.oryx.listener.system.ref.UserListener;
 import com.oryx.model.*;
 import com.oryx.model.basic.ITracableCancelableEntity;
 import com.oryx.model.system.ref.Person;
@@ -35,16 +34,16 @@ import java.util.UUID;
 )
 public class User extends ITracableCancelableEntity {
     @Column(name = ComSchemaColumnConstantName.T_CODE, length = ComSchemaConstantSize.CODE, updatable = false/*, nullable = false*/)
-    private String userCode;
+    private String code;
 
     @Column(name = SchemaColumnConstantName.T_EMAIL, length = SchemaConstantSize.EMAIL/*, nullable = false*/)
     private String email;
 
     @Column(name = SchemaColumnConstantName.T_LOGIN, length = SchemaConstantSize.LOGIN/*, nullable = false*/)
-    private String userLogin;
+    private String login;
 
     @Column(name = SchemaColumnConstantName.T_USER_PASSWORD, length = SchemaConstantSize.PASS_WORD/*, nullable = false*/)
-    private String userPassword;
+    private String password;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = SchemaColumnConstantName.T_START_DATE)
@@ -109,20 +108,20 @@ public class User extends ITracableCancelableEntity {
         this.email = email;
     }
 
-    public String getUserLogin() {
-        return userLogin;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUserLogin(String userLogin) {
-        this.userLogin = userLogin;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getLastConnection() {
@@ -189,12 +188,12 @@ public class User extends ITracableCancelableEntity {
         this.roleSet = roleSet;
     }
 
-    public String getUserCode() {
-        return userCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setUserCode(String userCode) {
-        this.userCode = userCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public IEnumLanguage.Types getLanguage() {

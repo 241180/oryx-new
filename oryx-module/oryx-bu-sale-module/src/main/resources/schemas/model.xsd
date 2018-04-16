@@ -95,7 +95,7 @@
     <xs:complexContent>
       <xs:extension base="model:TracableCancelableEntityVO">
         <xs:sequence>
-          <xs:element minOccurs="0" name="productCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
           <xs:element minOccurs="0" name="name" type="xs:string"/>
           <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="category" type="model:ProductCategoryVO"/>
@@ -240,10 +240,10 @@
     <xs:complexContent>
       <xs:extension base="model:TracableCancelableEntityVO">
         <xs:sequence>
-          <xs:element minOccurs="0" name="userCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
           <xs:element minOccurs="0" name="email" type="xs:string"/>
-          <xs:element minOccurs="0" name="userLogin" type="xs:string"/>
-          <xs:element minOccurs="0" name="userPassword" type="xs:string"/>
+          <xs:element minOccurs="0" name="login" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
           <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
           <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
           <xs:element minOccurs="0" name="language" type="domain:EnumLanguageVO"/>

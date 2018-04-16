@@ -95,7 +95,7 @@
     <xs:complexContent>
       <xs:extension base="model:TracableCancelableEntityVO">
         <xs:sequence>
-          <xs:element minOccurs="0" name="productCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
           <xs:element minOccurs="0" name="name" type="xs:string"/>
           <xs:element minOccurs="0" name="description" type="xs:string"/>
           <xs:element minOccurs="0" name="category" type="model:ProductCategoryVO"/>
