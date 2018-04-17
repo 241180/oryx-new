@@ -15,20 +15,20 @@
             <div class="pull-left">
                 <div>
                     <div class="input-append">
-                        <label>* <spring:message code="users.userCode"/>:</label>
+                        <label>* <spring:message code="users.code"/>:</label>
                     </div>
                     <div class="input-append">
                         <input type="text"
                                required
                                autofocus
-                               ng-model="user.userCode"
+                               ng-model="user.code"
                                name="name"
-                               placeholder="<spring:message code='user'/>&nbsp;<spring:message code='users.userCode'/>"/>
+                               placeholder="<spring:message code='user'/>&nbsp;<spring:message code='users.code'/>"/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && newUserForm.userCode.$error.required">
+                                      ng-show="displayValidationError && newUserForm.code.$error.required">
                                         <spring:message code="required"/>
                                 </span>
                         </label>
@@ -36,14 +36,54 @@
                 </div>
                 <div>
                     <div class="input-append">
-                        <label>* <spring:message code="users.value"/>:</label>
+                        <label>* <spring:message code="users.login"/>:</label>
                     </div>
                     <div class="input-append">
                         <input type="text"
                                required
-                               ng-model="user.value"
+                               ng-model="user.login"
                                name="email"
-                               placeholder="<spring:message code='sample.value'/> "/>
+                               placeholder="<spring:message code='users.login'/> "/>
+                    </div>
+                    <div class="input-append">
+                        <label>
+                                <span class="alert alert-error"
+                                      ng-show="displayValidationError && newUserForm.value.$error.required">
+                                    <spring:message code="required"/>
+                                </span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-append">
+                        <label>* <spring:message code="users.email"/>:</label>
+                    </div>
+                    <div class="input-append">
+                        <input type="text"
+                               required
+                               ng-model="user.email"
+                               name="email"
+                               placeholder="<spring:message code='users.email'/> "/>
+                    </div>
+                    <div class="input-append">
+                        <label>
+                                <span class="alert alert-error"
+                                      ng-show="displayValidationError && newUserForm.value.$error.required">
+                                    <spring:message code="required"/>
+                                </span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-append">
+                        <label>* <spring:message code="users.password"/>:</label>
+                    </div>
+                    <div class="input-append">
+                        <input type="text"
+                               required
+                               ng-model="user.password"
+                               name="email"
+                               placeholder="<spring:message code='users.password'/> "/>
                     </div>
                     <div class="input-append">
                         <label>
@@ -94,20 +134,20 @@
             <div class="pull-left">
                 <div>
                     <div class="input-append">
-                        <label>* <spring:message code="users.userCode"/>:</label>
+                        <label>* <spring:message code="users.code"/>:</label>
                     </div>
                     <div class="input-append">
                         <input type="text"
                                autofocus
                                required
-                               ng-model="user.userCode"
+                               ng-model="user.code"
                                name="name"
-                               placeholder="<spring:message code='user'/>&nbsp;<spring:message code='users.userCode'/> "/>
+                               placeholder="<spring:message code='user'/>&nbsp;<spring:message code='users.code'/> "/>
                     </div>
                     <div class="input-append">
                         <label>
                                 <span class="alert alert-error"
-                                      ng-show="displayValidationError && updateUserForm.userCode.$error.required">
+                                      ng-show="displayValidationError && updateUserForm.code.$error.required">
                                     <spring:message code="required"/>
                                 </span>
                         </label>
@@ -163,7 +203,7 @@
     </div>
     <div class="modal-body">
         <form name="deleteUserForm" novalidate>
-            <p><spring:message code="delete.confirm"/>:&nbsp;{{user.userCode}}?</p>
+            <p><spring:message code="delete.confirm"/>:&nbsp;{{user.code}}?</p>
 
             <input type="submit"
                    class="btn btn-inverse"
@@ -208,7 +248,7 @@
                            required
                            ng-model="searchFor"
                            name="searchFor"
-                           placeholder="<spring:message code='user'/>&nbsp;<spring:message code='users.userCode'/> "/>
+                           placeholder="<spring:message code='user'/>&nbsp;<spring:message code='users.code'/> "/>
                 </div>
                 <div class="input-append displayInLine">
                     <label class="displayInLine">

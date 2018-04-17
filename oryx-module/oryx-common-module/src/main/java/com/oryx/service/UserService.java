@@ -20,6 +20,17 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional(readOnly = true)
+    public User findByLogin(String login){
+        return userRepository.findByLogin(login);
+    }
+
+    @Transactional(readOnly = true)
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
+
+    @Transactional(readOnly = true)
     public UserListVO findAll(int page, int maxResults) {
         Page<User> result = executeQueryFindAll(page, maxResults);
 
@@ -62,7 +73,7 @@ public class UserService {
     }
 
     private Sort sortByEmailASC() {
-        return new Sort(Sort.Direction.ASC, "userCode");
+        return new Sort(Sort.Direction.ASC, "code");
     }
 
     private UserListVO buildResult(Page<User> result) {

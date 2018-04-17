@@ -10,4 +10,6 @@ import java.util.UUID;
 
 public interface UserRepository extends PagingAndSortingRepository<User, UUID> {
     Page<User> findByEmail(Pageable pageable, String email);
+    User findByLogin(String login);
+    User findByEmail(String email);
 }

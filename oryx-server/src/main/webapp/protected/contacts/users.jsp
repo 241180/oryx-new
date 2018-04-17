@@ -69,15 +69,19 @@
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th scope="col"><spring:message code="users.userCode"/></th>
-                    <th scope="col"><spring:message code="users.value"/></th>
+                    <th scope="col"><spring:message code="users.code"/></th>
+                    <th scope="col"><spring:message code="users.login"/></th>
+                    <th scope="col"><spring:message code="users.email"/></th>
+                    <th scope="col"><spring:message code="users.password"/></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="user in page.source">
-                    <td class="tdUsersCentered">{{user.userCode}}</td>
+                    <td class="tdUsersCentered">{{user.code}}</td>
+                    <td class="tdUsersCentered">{{user.login}}</td>
                     <td class="tdUsersCentered">{{user.email}}</td>
+                    <td class="tdUsersCentered">{{user.password}}</td>
                     <td class="width15">
                         <div class="text-center">
                             <input type="hidden" value="{{user.id}}"/>
