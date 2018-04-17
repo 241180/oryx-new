@@ -19,23 +19,10 @@ import java.util.UUID;
 @RequestMapping("/login")
 public class LoginController {
 
-    @Autowired
-    UserService userService;
-
-    /*@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
     public ModelAndView doGet() {
         return new ModelAndView("login");
-    }*/
-
-    @RequestMapping(value = "/connect", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> connect(@RequestParam(name = "login") String login, @RequestParam(name = "password") String password) {
-        User user = userService.findByEmail(login);
-        if(user != null){
-            if(user.getPassword()!=null && user.getPassword().equals(password)){
-                return new ResponseEntity<User>(user, HttpStatus.OK);
-            }
-        }
-
-        return new ResponseEntity<User>(user, HttpStatus.NOT_FOUND);
     }
+
+
 }
