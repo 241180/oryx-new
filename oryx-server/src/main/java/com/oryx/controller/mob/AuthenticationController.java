@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -58,5 +59,30 @@ public class AuthenticationController {
         }
 
         return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> signup(@RequestParam(name = "firstName") String firstName,
+                                    @RequestParam(name = "lastName") String lastName,
+                                    @RequestParam(name = "email") String email,
+                                    @RequestParam(name = "phone") String phone,
+                                    @RequestParam(name = "address") String address,
+                                    @RequestParam(name = "password") String password) {
+
+        User user = userService.findByEmail(email);
+        if(user == null){
+            user = new User();
+            user.setCode(firstName);
+            user.setLogin(lastName);
+            user.setPassword(password);
+            user.setEmail(email);
+            user.setStartDate(new Date());
+            userService.save(user);
+
+            connect(user.getLogin(), user.getPassword());
+            return new ResponseEntity<User>(user, HttpStatus.FOUND);
+        }
+
+        return new ResponseEntity<String>("User email is already used", HttpStatus.NOT_FOUND);
     }
 }
