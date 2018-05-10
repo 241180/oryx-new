@@ -22,6 +22,7 @@ public interface SchemaColumnConstantName extends ComSchemaColumnConstantName {
     public static final String T_CIVILITY = "CIVILITY";
     public static final String T_ADDRESS_ID = "ADRESS_ID";
     public static final String T_LOGIN = "LOGIN";
+    public static final String T_TOKEN = "TOKEN";
     public static final String T_EMAIL = "EMAIL";
     public static final String T_USER_ENABLED = "ENABLED";
     public static final String T_USER_PASSWORD = "PASSWORD";

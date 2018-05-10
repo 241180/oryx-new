@@ -1,6 +1,8 @@
 package com.oryx.controller.mob;
 
+import com.oryx.model.system.ose.AssoUserToken;
 import com.oryx.model.system.ose.User;
+import com.oryx.service.AssoUserTokenService;
 import com.oryx.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,9 @@ public class AuthenticationController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AssoUserTokenService assoUserTokenService;
 
     @RequestMapping(value = "/connect", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<?> connect(@RequestParam(name = "login") String login, @RequestParam(name = "password") String password) {
@@ -84,5 +89,34 @@ public class AuthenticationController {
         }
 
         return new ResponseEntity<String>("User email is already used", HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(value = "/registerToken", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> registerToken(@RequestParam(name = "email") String email,
+                                    @RequestParam(name = "token") String token) {
+
+        User user = userService.findByEmail(email);
+        if(user != null){
+            AssoUserToken assoUserToken = assoUserTokenService.findByUserId(user.getId());
+            if(assoUserToken != null) {
+                assoUserToken.setToken(token);
+            } else {
+                assoUserToken = new AssoUserToken();
+                assoUserToken.setUser(user);
+                assoUserToken.setToken(token);
+            }
+
+            assoUserTokenService.save(assoUserToken);
+
+            ClientNotificationsViaFCMServerHelper fcmMessage =
+                    new ClientNotificationsViaFCMServerHelper();
+
+            // fcmMessage.sendNotification();
+            fcmMessage.sendNotification();
+
+            return new ResponseEntity<User>(user, HttpStatus.FOUND);
+        }
+
+        return new ResponseEntity<String>("Unknown user", HttpStatus.NOT_FOUND);
     }
 }

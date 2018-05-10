@@ -19,6 +19,7 @@ public interface SchemaTableConstantName extends ComSchemaColumnConstantName {
     public static final String T_ASSO_THIRD_PARTY_CONTACT = "T_ASSO_THIRD_PARTY_CONTACT";
     public static final String T_ASSO_THIRD_PARTY_ADRESS = "T_ASSO_THIRD_PARTY_ADRESS";
     public static final String T_USER = "T_USER";
+    public static final String T_ASSO_USER_TOKEN = "T_ASSO_USER_TOKEN";
     public static final String T_PATIENT = "T_PATIENT";
     public static final String T_ROLE_INFO = "T_ROLE_INFO";
     public static final String T_PERSON = "T_PERSON";

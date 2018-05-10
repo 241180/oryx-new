@@ -9,6 +9,7 @@ public interface ComSchemaConstantSize {
     public static final int TABLE_CODE = 10;
     public static final int TYPE = 10;
     public static final int LOGIN = 12;
+    public static final int TOKEN = 255;
     public static final int PASS_WORD = 128;
     public static final int LANG_CODE = 3;
     public static final int EMAIL = 32;
