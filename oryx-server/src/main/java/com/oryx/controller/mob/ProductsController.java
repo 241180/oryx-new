@@ -63,13 +63,20 @@ public class ProductsController {
             Gson gson = new Gson();
             product = gson.fromJson(jsonProduct, Product.class);
             if (product.getCode() != null && !product.getCode().isEmpty()){
-                codificationService.save(xformat, product.getCode(), product.getCode());
-                productService.save(product);
+                try {
+                    codificationService.save(xformat, product.getCode(), product.getCode());
+                    productService.save(product);
+                } catch (Exception e){
+                    return new ResponseEntity<String>(e.getMessage(), HttpStatus.OK);
+                }
+
                 return new ResponseEntity<Product>(product, HttpStatus.CREATED);
             }
+        } else {
+            return new ResponseEntity<String>("No parameters [format , product]", HttpStatus.NO_CONTENT);
         }
 
-        return new ResponseEntity<Product>(product, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<String>("No parameters [format , product]", HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json")
@@ -83,7 +90,6 @@ public class ProductsController {
                 if(cod != null) {
                     product.setCode(cod.getInternalCode());
                     productService.save(product);
-                    product.setCode(cod.getExternalCode());
                     return new ResponseEntity<Product>(product, HttpStatus.CREATED);
                 }
             }
