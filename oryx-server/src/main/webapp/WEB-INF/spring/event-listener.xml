@@ -6,20 +6,8 @@
 						   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 						   http://www.springframework.org/schema/context http://www.springframework.org/schema/task/spring-context-3.0.xsd">
 
-    <!-- Basic Configurations -->
-    <context:annotation-config/>
-
-    <context:component-scan base-package="com.oryx.controller"/>
-
-    <!-- SpringMVC -->
-    <import resource="spring-mvc.xml"/>
-
-    <!-- SpringData -->
-    <import resource="spring-jpa.xml"/>
-
-    <!-- SpringWS -->
-    <import resource="classpath:spring/spring-common-module.xml"/>
-
-    <!-- Event Listeners-->
-    <import resource="event-listener.xml"/>
+    <bean id="contextStartedListener" class="com.oryx.listener.ApplicationContextStartedListener"/>
+    <bean id="contextRefreshedListener" class="com.oryx.listener.ApplicationContextRefreshedListener"/>
+    <bean id="contextClosedListener" class="com.oryx.listener.ApplicationContextClosedListener"/>
+    <bean id="contextStoppedListener" class="com.oryx.listener.ApplicationContextStoppedListener"/>
 </beans>

@@ -20,7 +20,7 @@ public class CodificationService {
 
     @Transactional(readOnly = true)
     public Codification findByServerCodeAndExternalCode(String serverCode, String externalCode){
-        return codificationRepository.findByServerCodeAndInternalCode(serverCode, externalCode);
+        return codificationRepository.findByServerCodeAndExternalCode(serverCode, externalCode);
     }
 
     @Transactional()
@@ -30,5 +30,15 @@ public class CodificationService {
         cod.setInternalCode(internalCode);
         cod.setExternalCode(externalCode);
         return codificationRepository.save(cod);
+    }
+
+    @Transactional()
+    public Codification save(Codification codification){
+        return codificationRepository.save(codification);
+    }
+
+    @Transactional()
+    public void delete(Codification codification){
+        codificationRepository.delete(codification);
     }
 }

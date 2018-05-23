@@ -1,8 +1,10 @@
 package com.oryx.model.basic;
 
 import com.oryx.model.ComSchemaColumnConstantName;
+import com.oryx.model.listener.TracableEntityListener;
 
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
@@ -13,6 +15,7 @@ import java.util.Date;
 
 @XmlType(name = "TracableEntityVO", namespace = "http://model.ref.ws.oryx.com")
 @MappedSuperclass
+@EntityListeners(TracableEntityListener.class)
 public class ITracableEntity extends IEntity {
     @Column(name = ComSchemaColumnConstantName.T_CREATE_DATE)
     private Date creatDate;
